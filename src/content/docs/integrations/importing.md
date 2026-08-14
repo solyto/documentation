@@ -1,148 +1,82 @@
 ---
 title: Importing Data
-description: Import from Deezer, Discogs, Goodreads, Hardcover, Steam, BGG, IMDb, and Chefkoch.
+description: Search online and import from Deezer, Discogs, Goodreads, Hardcover, IMDb, TMDB, Steam, BGG, and Chefkoch.
 ---
 
-solyto can import data from several external services to populate your libraries. All imports are triggered manually — solyto never contacts external services in the background.
+solyto can import data from several external services to populate your libraries. All imports are triggered manually — solyto never contacts external services in the background, and no data passes through an intermediate server.
 
-:::note
-solyto only contacts external services when you explicitly trigger an import. No data passes through any intermediate server.
-:::
+## How importing works
 
-## Import flow
+Each library offers two ways to bring in entries from an external service:
 
-Most imports follow the same multi-stage process:
+- **Search online** — search a provider by title/name and import from the results with metadata (cover, year, etc.) filled in automatically
+- **Import by URL** — paste a link to an item (e.g. a Deezer album or IMDb movie) and solyto fetches its details
 
-1. **Started** — the import job is queued
-2. **Select** — review and choose which items to import
-3. **Creating/Importing** — items are being written to your library
-4. **Finished** — import is complete, your library is updated
-
-You can track progress on the import page for each library.
+Both are available from the **+** (create) modal in each library. Imports are only triggered when you explicitly click a button.
 
 ## Music Library
 
-### From Deezer
+Providers: **Deezer** and **Discogs**.
 
-Import albums and artists from your Deezer library by searching.
-
-1. Go to **Music Library → Import → Deezer**
-2. Search for an artist or album by name
-3. Browse the results and select the items you want
-4. Click **Import**
-
-solyto fetches metadata (album art, track listings, release dates) from Deezer's API.
-
-### From Discogs
-
-Import your physical music collection (vinyl, CD, cassette) from Discogs.
-
-1. Go to **Music Library → Import → Discogs**
-2. Enter your Discogs username
-3. solyto fetches your collection via the Discogs API
-4. Review the items and click **Import** to add them to your Music Library
+1. Open the **Music Library** and click **+**
+2. Search Deezer/Discogs by artist or album name, or paste an album URL
+3. Review the matched result (a Deezer preview widget lets you listen first)
+4. Save — cover art and metadata are filled in automatically
 
 ## Book Library
 
-### From Hardcover
+Providers: **Hardcover** and **Goodreads**.
 
-Import your reading history from Hardcover using their API.
-
-1. Go to **Book Library → Import → Hardcover**
-2. Connect your Hardcover account or enter your username
-3. Select which books and shelves to import
-4. Click **Import**
-
-### From Goodreads
-
-Import your Goodreads library via CSV export.
-
-1. In Goodreads, go to **My Books → Import & Export → Export Library**
-2. Download the CSV file
-3. In solyto, go to **Book Library → Import → Goodreads**
-4. Upload the CSV file
-5. solyto maps your Goodreads shelves to solyto statuses:
-   - "read" → Read
-   - "currently-reading" → Reading
-   - "to-read" → Want to Read
-6. Review the mapping and click **Import**
+1. Open the **Book Library** and click **+**
+2. Search Hardcover/Goodreads by title or author, or paste a book URL
+3. Review the matched result
+4. Save — cover art and metadata are filled in automatically
 
 ## Movie Library
 
-### From IMDb
+Providers: **IMDb** and **TMDB**.
 
-Import movies from IMDb by URL.
-
-1. Go to **Movie Library → Import → IMDb**
-2. Paste the IMDb URL of the movie you want to add (e.g. `https://www.imdb.com/title/tt0111161/`)
-3. solyto fetches the movie metadata (title, year, poster, rating)
-4. Click **Import**
-
-You can import multiple movies one at a time by repeating the process.
+1. Open the **Movie Library** and click **+**
+2. Search TMDB by title, or paste an IMDb/TMDB URL
+3. Review the matched result
+4. Save — poster and metadata are filled in automatically
 
 ## Game Library
 
-### From Steam
+Providers: **Steam** and **BoardGameGeek**.
 
-Import your Steam games library.
-
-1. Go to **Game Library → Import → Steam**
-2. Enter your **Steam ID** (numeric ID or vanity URL name)
-3. solyto fetches your game library via the Steam API
-4. Review the list and click **Import**
-
-:::tip
-You can find your Steam ID on your Steam profile page. If you have a custom URL, use the vanity name from `steamcommunity.com/id/<your-name>`.
-:::
-
-### From BoardGameGeek
-
-Import your board game collection from BGG.
-
-1. Go to **Game Library → Import → BoardGameGeek**
-2. Enter your BGG username
-3. solyto fetches your collection via the BGG XML API
-4. Review the items and click **Import**
+1. Open the **Game Library** and click **+**
+2. Search Steam/BGG by title, or paste a Steam/BGG URL
+3. Review the matched result
+4. Save — cover art and metadata (developer, publisher, etc.) are filled in automatically
 
 ## Recipe Library
 
-### From Chefkoch
+Provider: **Chefkoch**.
 
-Import recipes from Chefkoch by URL.
-
-1. Go to **Recipe Library → Import → Chefkoch**
-2. Paste the Chefkoch recipe URL (e.g. `https://www.chefkoch.de/rezepte/...`)
-3. solyto extracts the recipe data (ingredients, instructions, servings, image)
-4. Review the imported data and click **Save**
+1. Open the **Recipe Library** and click **+**
+2. Paste a Chefkoch recipe URL
+3. Review the imported recipe
+4. Save — ingredients, steps, servings, and image are extracted automatically
 
 ## Notes
 
-### From file upload
-
-Import notes from files on your computer.
+Import notes from Markdown (`.md`) or ZIP files.
 
 1. Go to **Notes → Import**
-2. Upload one or more files (supports `.md`, `.txt`, and other text formats)
+2. Upload one or more files
 3. Each file becomes a separate note in solyto
-4. Review and organize after import
 
 ## Calendar
 
 ### From CalDAV
 
-Import calendars from an external CalDAV server.
+Import calendars from an external CalDAV server (Nextcloud, iCloud, etc.).
 
-1. Go to **Calendar → Import → CalDAV**
-2. Enter the CalDAV server URL and credentials
+1. Go to **Calendar → Import**
+2. Enter the server URL, username, and password
 3. Select which calendars to import
-4. The import runs through the multi-stage process (started → select → creating → finished)
-
-### From .ics file
-
-1. Export your calendar from your existing service as an `.ics` file
-2. Go to **Calendar → Import → ICS**
-3. Upload the `.ics` file
-4. Select which events to import
+4. Events are fetched and stored with live progress
 
 ## Contacts
 
@@ -150,18 +84,11 @@ Import calendars from an external CalDAV server.
 
 Import contacts from an external CardDAV server.
 
-1. Go to **Contacts → Import → CardDAV**
-2. Enter the CardDAV server URL and credentials
-3. solyto fetches your address book
-4. Review and confirm the import
-
-### From vCard file
-
-1. Export your contacts as a `.vcf` (vCard) file
-2. Go to **Contacts → Import → vCard**
-3. Upload the `.vcf` file
-4. Contacts are added to your solyto address book
+1. Go to **Contacts → Import**
+2. Enter the server URL, username, and password
+3. Select which address books to import
+4. Contacts are fetched and stored with live progress
 
 ## Privacy
 
-All import requests go directly from solyto's backend to the external service using your credentials or API key. Your data is never sent to any third party during the import process.
+All import requests go directly from solyto's backend to the external service. Your data is never sent to any third party during the import process.
