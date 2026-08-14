@@ -13,10 +13,13 @@ The dashboard is organized into three columns. On mobile, the columns stack vert
 
 Everything you need to know about today:
 
-- **Weather** — Current conditions and today's forecast from the Open-Meteo API. The city and temperature unit (Celsius or Fahrenheit) are configurable in **Settings → General**.
+- **Weather** — Current conditions and today's forecast from the Open-Meteo API. Click the city name to search for a new location (with a °C/°F toggle). The temperature unit is remembered in your settings.
 - **Today's Events** — Calendar events for today pulled from all your active calendars. Tap an event to jump to the [Calendar](/features/calendar/) view.
-- **Due Todos** — Todos that are due today or overdue. Mark them complete without leaving the dashboard.
+- **Upcoming Events** — The next events after today, so you can plan ahead.
+- **Due Todos** — Todos that are due today or overdue, with a colored priority dot. Mark them complete right from the dashboard (a little confetti celebrates your win).
 - **Scored Todos** — The top 5 most relevant todos, ranked by a smart score that factors in priority, estimated effort, overdue status, and age. This helps surface the tasks that matter most right now.
+
+If nothing is scheduled, the column shows a friendly "Nothing on your plate today" empty state.
 
 ### Inspiration (center column)
 
@@ -33,9 +36,9 @@ Fresh content to start your day:
 
 At-a-glance status widgets:
 
-- **Check-In** — Your daily [check-in](/features/check-in/) status and a quick entry field to log today's entry.
-- **Time Tracking** — Shows any active timer and your most recent [time tracking](/features/time-tracking/) entries.
-- **Shortcuts** — User-defined quick-access shortcuts for pages or actions you use frequently.
+- **Check-In** — A quick view of your daily [check-in](/features/check-in/) scores: the mean value per scored tracker (color-coded bars) plus your overall total score. Tap through to log or edit today's entry.
+- **Time Tracking** — Your [time tracking](/features/time-tracking/) totals for the current week with a per-project breakdown. Also shows any active timer.
+- **Shortcuts** — User-defined quick-access links with favicons, shown as a list with hover actions. Manage them with the pencil button.
 
 ## Onboarding
 

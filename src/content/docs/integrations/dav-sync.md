@@ -19,7 +19,7 @@ DAV sync uses **Basic Auth** with your solyto account credentials:
 - **Username:** your solyto email address
 - **Password:** your solyto account password
 
-Find your connection details in **Settings → Integrations → CalDAV** or **Settings → Integrations → CardDAV**.
+The connection details (server URL, username, password hint) are shown in the **Sync** modal in the Calendar and Contacts pages.
 
 ## CalDAV (Calendar sync)
 
@@ -37,11 +37,10 @@ CalDAV keeps your solyto calendar in sync with external calendar apps. Changes m
 
 ### Setup
 
-1. In solyto, go to **Settings → Integrations → CalDAV**
-2. Copy the CalDAV server URL and your credentials
-3. Open your calendar app and add a new CalDAV account
-4. Enter the server URL, your email, and your password
-5. Your solyto calendars will appear as available calendars to subscribe to
+1. In solyto, open **Calendar → Sync** to see your DAV server URL and credentials
+2. Open your calendar app and add a new CalDAV account
+3. Enter the server URL (`https://dav.solyto.de` on hosted), your email, and your password
+4. Your solyto calendars will appear as available calendars to subscribe to
 
 Changes made in solyto or your external calendar app will sync in both directions automatically.
 
@@ -64,36 +63,30 @@ CardDAV keeps your solyto contacts in sync with external contacts apps.
 
 ### Setup
 
-1. In solyto, go to **Settings → Integrations → CardDAV**
-2. Copy the CardDAV server URL and your credentials
-3. Open your contacts app and add a new CardDAV account
-4. Enter the server URL, your email, and your password
-5. Your solyto contacts will sync automatically
+1. In solyto, open **Contacts → Sync** to see your DAV server URL and credentials
+2. Open your contacts app and add a new CardDAV account
+3. Enter the server URL, your email, and your password
+4. Your solyto contacts will sync automatically
 
 ## Importing via CalDAV / CardDAV
 
-If you want to import existing calendars or contacts into solyto:
+You can also import calendars and contacts from an external DAV server directly into solyto:
 
 ### Calendar import
 
-1. Export your calendar from your existing service as an `.ics` file
-2. In solyto, go to **Calendar → Import**
-3. Upload the `.ics` file or provide a CalDAV URL to sync from
-
-The import process has four stages:
-
-1. **Started** — the import job has been queued
-2. **Select** — choose which calendars/events to import
-3. **Creating/Importing** — events are being written to your solyto calendar
-4. **Finished** — import is complete
+1. In solyto, go to **Calendar → Import**
+2. Enter the external server's URL, username, and password
+3. Discover which calendars are available and select the ones to import
+4. Events are fetched and stored with live progress
 
 ### Contact import
 
-1. Export your contacts as a `.vcf` (vCard) file
-2. In solyto, go to **Contacts → Import**
-3. Upload the `.vcf` file
+1. In solyto, go to **Contacts → Import**
+2. Enter the external server's URL, username, and password
+3. Discover which address books are available and select the ones to import
+4. Contacts are fetched and stored with live progress
 
-Alternatively, connect via CardDAV and let the sync pull in your existing contacts automatically.
+This works with any CalDAV/CardDAV server (Nextcloud, iCloud, etc.).
 
 ## Sync frequency
 

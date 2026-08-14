@@ -93,10 +93,10 @@
 
 ## Remaining
 
-- [ ] Rewrite `privacy.md` (expand with more detail)
-- [ ] Remove or redirect old `getting-started/self-hosting.md` (replaced by self-hosting/ section)
-- [ ] Update `index.mdx` splash page if needed
-- [ ] Build and verify the site (`npm run build`)
+- [x] Rewrite `privacy.md` (expanded with real external-service list)
+- [x] Remove old `getting-started/self-hosting.md` (replaced by self-hosting/ section)
+- [x] Update `index.mdx` splash page
+- [x] Build and verify the site (`npm run build`) — passes, 64 pages
 - [ ] Add favicon/logo (currently default Astro favicon)
 - [ ] Consider: video placeholder sections for future video instructions
 - [ ] Consider: i18n support for the docs site itself

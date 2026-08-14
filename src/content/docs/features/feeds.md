@@ -1,9 +1,9 @@
 ---
 title: Feeds
-description: An RSS/Atom news reader with filtering and categories.
+description: An RSS/Atom news reader with keyword filtering and a browse directory.
 ---
 
-The Feeds feature is a full RSS/Atom news reader built into solyto. Subscribe to any feed URL, read articles in multiple layouts, filter by keywords, organize subscriptions into categories, and discover new feeds through friends — all without leaving the app.
+The Feeds feature is a full RSS/Atom news reader built into solyto. Subscribe to any feed URL, read articles in multiple layouts, filter by keywords, and discover new feeds through a browse directory and your friends — all without leaving the app.
 
 ## Adding feeds
 
@@ -11,7 +11,7 @@ Paste any RSS or Atom feed URL to subscribe. solyto fetches new items in the bac
 
 ### Testing feeds
 
-Before subscribing, you can **test a feed URL** to verify it works and preview its content. This prevents adding broken feeds to your list and lets you confirm the feed has the content you expect.
+Before subscribing, you can **test a feed URL** to fetch and preview its content ("Looks right?"). This prevents adding broken feeds to your list and lets you confirm the feed has the content you expect.
 
 ## Reading views
 
@@ -23,35 +23,29 @@ Three layouts are available for reading your feeds:
 | **Comfortable** | Balanced layout with a content preview — good for skimming |
 | **Card** | Full article cards with images and formatting — good for reading in-app |
 
-Switch between views using the layout toggle at the top of the Feeds page.
+Switch between views using the layout toggle. Your choice is remembered.
 
 ## Filtering
 
 Each feed subscription supports **keyword filtering** to control what appears in your reading list:
 
-- **Whitelist** — only show items containing specific keywords
-- **Blacklist** — hide items containing specific keywords
+- **Whitelist** — only show items matching any of these keywords
+- **Blacklist** — hide items matching any of these keywords
 
-This is useful for filtering out topics you don't care about from high-volume feeds. Filters are applied per subscription, so you can have different rules for different feeds.
-
-## Categories
-
-Organize your feed subscriptions into categories. For example:
-
-- **Tech** — technology blogs and news
-- **Design** — design inspiration and tutorials
-- **News** — general news sources
-
-Filter your reading view by category to focus on one topic at a time. You can assign a feed to a category when subscribing, or change it later.
+Keywords are entered as comma-separated chips. This is useful for filtering out topics you don't care about from high-volume feeds. Filters are applied per subscription, so you can have different rules for different feeds.
 
 ## Mark as read
 
 Manage your reading queue:
 
 - **Individual** — mark a single item as read after you've finished it
-- **Bulk** — mark all items in a feed or category as read to clear your queue
+- **Bulk** — mark all items in a feed as read to clear your queue
 
-Unread items are shown first so you can focus on new content. Once marked as read, items move below the unread items.
+Unread items are shown first so you can focus on new content.
+
+## Save to Library
+
+Any feed item can be saved to your [Link Library](/features/libraries/links/) with one click, so you can keep articles and their content in solyto long after the feed item expires.
 
 ## Open original
 
@@ -63,18 +57,18 @@ Manage your subscriptions with full CRUD operations:
 
 - **Create** — subscribe to a new feed by pasting its URL
 - **Read** — view feed items and settings
-- **Update** — change the feed name, category, or filters
+- **Update** — change the feed name, URL, or filters
 - **Delete** — unsubscribe from a feed
 
-Each subscription shows the feed title, the number of unread items, and the last sync time.
+Each subscription shows the feed title and the number of unread items.
 
-## Available feeds discovery
+## Browse feeds
 
-solyto can suggest feeds based on popular sources. Browse available feeds to discover new content to follow without searching externally.
+A discoverable feed directory with search, pagination, and subscriber counts. You can subscribe to a feed directly from the browse view. Duplicate subscriptions are caught automatically.
 
 ## Friends' feeds
 
-See what feeds your solyto friends are subscribed to. Discover new sources through your network and find interesting content you might have missed. This is a social way to expand your reading list.
+See what feeds your solyto friends are subscribed to, with friend names shown. Discover new sources through your network and subscribe with one click. This is a social way to expand your reading list.
 
 ## Exporting
 

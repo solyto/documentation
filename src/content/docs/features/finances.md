@@ -7,39 +7,39 @@ The Finances feature helps you track your day-to-day budget and your overall net
 
 Both sub-sections are accessible from the Finances hub, and each has its own dedicated route. No external integrations or bank connections are needed — all data is entered manually by you, keeping everything private.
 
+## Overview
+
+The Finances overview shows two tappable cards — **Budget** and **Wealth** — with their totals, plus three charts:
+
+- **Income vs Expenses** — a bar chart comparing the two
+- **Wealth Distribution** — a doughnut of your current wealth field values
+- **Wealth Trend** — a 12-month line chart of your total net worth
+
 ## Budget
 
-Track your income and expenses with individual entries. The Budget view shows you what came in and what went out, broken down by type and date range. It's designed for quick, daily tracking — no complex setup required.
+Track your income and expenses with individual entries.
 
 ### Entries
 
-Each budget entry includes:
+Each budget entry has:
 
 - **Title** — a description of the income or expense
 - **Type** — income or expense
 - **Value** — the amount
-- **Date** — when it occurred
 
-Create entries as you earn or spend. Over time, the Budget view builds a clear picture of your cash flow. You can add entries one at a time or batch them for efficiency.
-
-You can also edit or delete existing entries if you make a mistake or need to update a value. The Budget view updates totals in real time as you make changes.
+Add entries as you earn or spend. Edit or delete entries at any time.
 
 ### Viewing totals
 
-The Budget view summarizes your entries with totals and breakdowns:
+The Budget view summarizes your entries:
 
-- View totals by type (income vs. expense) for any date range
-- See a monthly breakdown of what came in and went out
-- Track your spending patterns over time
-- Compare income against expenses to see your monthly surplus or deficit
-
-The totals view helps you answer questions like "how much did I spend this month?" and "is my income keeping up with my expenses?" at a glance.
+- A proportional expense-to-income progress bar
+- A **Total** card with the running balance (`+` for surplus, `-` for deficit)
+- Separate **Income** and **Expenses** sections with their subtotals
 
 ## Wealth
 
 Track your net worth by logging the value of your assets and liabilities over time. Wealth is separate from Budget — it focuses on your overall financial position rather than day-to-day cash flow.
-
-Wealth gives you a long-term view: are you building wealth over months and years, or is your net worth declining?
 
 ### Wealth fields
 
@@ -48,21 +48,20 @@ Create named fields for each component of your net worth:
 - **Assets** — bank accounts, investments, real estate, savings, retirement funds, etc.
 - **Liabilities** — debts, loans, mortgages, credit card balances, etc.
 
-Each field has a name and a type (asset or liability). You can create as many fields as you need to represent your full financial picture. Add or remove fields at any time as your financial situation changes.
+Each field is just a title — add or remove fields at any time as your financial situation changes. Fields are colored green when positive and red when negative.
 
 ### Logging values
 
-For each wealth field, log its current value on a given date. Over time, this builds a history of how each field has changed. You don't need to log every day — just update values periodically when your balances change.
-
-To log a value, open a wealth field and enter the current amount. solyto timestamps the entry and plots it on the historical chart.
+Each wealth field keeps a **value history**. Edit the current value inline and solyto records a new timestamped value. Over time this builds a history of how each field has changed. You don't need to log every day — just update values periodically when your balances change.
 
 ### Historical chart
 
-solyto shows a chart of your **total net worth** over time — the sum of all assets minus all liabilities. This gives you a clear picture of your financial trajectory and helps you see whether your net worth is growing, shrinking, or holding steady.
+The Wealth page shows a doughnut of current values and a **Total** card. Toggle **Show History** to reveal:
 
-The chart updates automatically as you log new values. You can hover over data points to see exact numbers for each date.
+- A 12-month **total net worth** line chart
+- A **stacked area chart** of each field's value over the same period
 
-You can also view individual field histories to see how specific assets or liabilities have changed over time.
+This gives you a clear picture of your financial trajectory and helps you see whether your net worth is growing, shrinking, or holding steady.
 
 ## Routes
 

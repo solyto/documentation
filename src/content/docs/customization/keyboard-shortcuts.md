@@ -1,53 +1,27 @@
 ---
 title: Keyboard Shortcuts
-description: Navigate faster with keyboard shortcuts and the command palette.
+description: Navigate and act faster with keyboard shortcuts.
 ---
 
-solyto has keyboard shortcuts for common actions and a command palette for quick access to anything.
+solyto has a keyboard shortcut system (KeyManager) for common actions across the app. Shortcuts are handled globally, and most also work with a helper key like `Ctrl` for specific actions.
 
-## Command palette
-
-The command palette is the fastest way to navigate and act in solyto on desktop.
+## Global shortcuts
 
 | Shortcut | Action |
 |----------|--------|
-| `Ctrl+Space` | Open the command palette (desktop) |
+| `Enter` | Confirm / create / quick-add (when not in an input field) |
+| `Escape` | Cancel / close the current dialog |
+| `Ctrl+S` | Save the current note |
+| `Ctrl+F` | Focus the search bar (libraries, contacts) |
 
-Once the command palette is open:
+## How shortcuts work
 
-- **Type** to search for pages, actions, or settings
-- **Arrow keys** (`↑` `↓`) to navigate results
-- **Enter** to execute the selected action
-- **Escape** to close the palette
+- Shortcuts are registered globally and run with priorities, so the most specific action wins when several handlers react to the same key
+- `Enter` and `Escape` are the two most common keys — used in modals ("Press Enter to Confirm, Escape to Cancel"), todo quick-create, dev request comments, wealth fields, and more
+- Helper keys (`Ctrl`, `Shift`, `Alt`) can be combined with character keys for actions like save (`Ctrl+S`) and search (`Ctrl+F`)
+- Shortcuts don't fire while you're typing in an input field, textarea, or select
 
-The command palette indexes all pages, features, and common actions. Start typing to filter — for example, type "todo" to jump to the Todos page, create a new todo, or open todo settings.
+## Notes
 
-## Quick Add
-
-| Shortcut | Action |
-|----------|--------|
-| `Enter` | Open the Quick Add modal (when not focused on an input field) |
-
-Quick Add lets you add items to any library, create todos, or save links from anywhere in the app. See [Quick Add](/dashboard/quick-add/) for details.
-
-## Getting help
-
-| Shortcut | Action |
-|----------|--------|
-| `F1` | Available for keyboard shortcuts reference |
-
-## How shortcuts are managed
-
-solyto uses a KeyManager system that handles all keyboard event registration. Shortcuts are registered globally and intercepted before they reach other components. This ensures that:
-
-- Shortcuts don't fire when you're typing in an input field or textarea
-- The command palette can be opened from any page
-- Quick Add works globally without conflicting with text editing
-
-## Tips
-
-- Shortcuts work on desktop browsers only
-- The command palette is the recommended way to navigate — it's faster than clicking through menus
-- If a shortcut conflicts with your browser's built-in shortcuts, you can disable it in **Settings → Keyboard Shortcuts**
-- Some shortcuts can be remapped in **Settings → Keyboard Shortcuts**
-- The command palette searches across all pages, features, and actions — try typing a few characters of where you want to go
+- Shortcuts work in desktop browsers
+- The `F1` key and the `e`, `f`, `s`, `n` character keys are part of the KeyManager's supported key set; bindings are registered per screen as needed

@@ -46,44 +46,44 @@ You can also edit or delete existing entries to correct mistakes.
 
 Use the built-in timer to track time in real time:
 
-1. **POST /start** — creates a running time entry (timer starts now)
-2. **POST /stop** — ends the running entry and calculates the duration
+1. Start a timer on a project (optionally with a description) — a live HH:MM:SS elapsed display appears
+2. Stop the timer when you're done — the duration is recorded as an entry
 
-The timer is accessible from anywhere in the app, so you don't need to stay on the Time Tracking page. Start a timer from the dashboard and stop it when you're done.
+The running timer is persisted, so it survives navigation — start a timer on the dashboard and stop it later from anywhere in the app.
 
 ## Pomodoro timer
 
 The Pomodoro timer is built into solyto's time tracking:
 
 - **25-minute focus sessions** — work without interruptions
-- **5-minute breaks** — short rest between sessions
-- **Longer break** — after four consecutive sessions, take a longer break
-- **Configurable durations** — customize session and break lengths in **Settings → Time Tracking**
+- **5-minute short breaks** — rest between sessions
+- **15-minute long break** — after every 4 sessions
+- **Cycle dots** — shows your position in the current 4-session cycle
+- **Beep** — an audible cue at the end of each phase
 
-The active Pomodoro session is shown on the [dashboard](/dashboard/overview/), so you always know where you are in your focus cycle. You can start, pause, and stop a Pomodoro session from anywhere in the app.
+You can start, pause, resume, skip, and reset the Pomodoro from the dashboard widget.
 
 ## Statistics
 
 View your logged time from multiple angles:
 
-- **By project** — see total time per project
-- **By category** — aggregated time across projects in a category
-- **By date range** — filter to a specific day, week, or month
-- **Totals** — daily, weekly, and monthly totals at a glance
+- **Date range** — pick From/To dates
+- **Filter by category** — aggregate across the projects in a category
+- **Total time** — the sum over your selection
+- **Doughnut by project** — how time is split between projects
+- **Bar chart by category** — time distribution by category
 
-Use statistics to understand where your time goes and adjust your habits. The statistics view is filterable by date range so you can focus on specific periods.
+Use statistics to understand where your time goes and adjust your habits.
 
 ## Dashboard widget
 
-An active timer is shown on the [dashboard](/dashboard/overview/), displaying:
+The [dashboard](/dashboard/overview/) Time Tracking widget shows:
 
-- The running timer with elapsed time
-- The associated project and description
-- Quick controls to pause or stop
+- Your total time for the current week
+- A per-project breakdown with colored bars
+- The Pomodoro timer, when active
 
 This gives you visibility into your current session without navigating away from your work.
-
-The widget also shows the Pomodoro timer when active, so you can track focus sessions from the dashboard.
 
 ## Routes
 
