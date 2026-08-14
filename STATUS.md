@@ -1,7 +1,7 @@
 # Solyto Documentation - Project Status
 
-**Date:** May 27, 2026
-**Total content files:** 62 (up from 32)
+**Date:** Aug 14, 2026
+**Total content files:** 63 (62 pages + landing page; 253 built routes incl. locale fallbacks)
 
 ## Completed
 
@@ -96,8 +96,15 @@
 - [x] Rewrite `privacy.md` (expanded with real external-service list)
 - [x] Remove old `getting-started/self-hosting.md` (replaced by self-hosting/ section)
 - [x] Update `index.mdx` splash page
-- [x] Build and verify the site (`npm run build`) — passes, 64 pages
-- [ ] Add favicon/logo (currently default Astro favicon)
-- [ ] Consider: video placeholder sections for future video instructions
-- [ ] Consider: i18n support for the docs site itself
-- [ ] Consider: deployment config (no hosting provider configured yet)
+- [x] Build and verify the site (`npm run build`) — passes
+- [x] Add favicon/logo (solyto logo used as favicon)
+- [x] Add video placeholder sections for future video instructions:
+  - `src/components/VideoPlaceholder.astro` — reusable placeholder card (thumb, "Video coming soon" badge, title, description, duration)
+  - Sections on `getting-started/how.mdx`, `getting-started/first-steps.mdx`, and `self-hosting/installation.mdx` (now `.mdx` to import the component)
+- [x] i18n infrastructure for the docs site itself:
+  - Locales configured in `astro.config.mjs`: English at root, plus `de`/`fr`/`es`
+  - `src/content/docs/{de,fr,es}/` scaffold dirs; untranslated pages fall back to English with a "not yet translated" notice
+  - Language switcher in the header; site UI (search, TOC) auto-translated by Starlight
+  - Translation manifests in `translations/` (one checklist per language, 63 files each)
+  - Note: `.gitignore` `docs/` fixed to `/docs/` so `src/content/docs/` files stay trackable
+- [ ] Configure deployment (no hosting provider configured yet)

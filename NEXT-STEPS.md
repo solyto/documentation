@@ -20,12 +20,20 @@ to `main`.
 1. **Verify `solyto` org workflow** — decide whether merged docs changes should go through
    the normal reviewer/quality gate via `mg` on future jobs, or be pushed directly.
 2. **Documentation follow-ups from the job**:
-   - Add a favicon/logo (currently the default Astro favicon).
-   - Add video placeholder sections for future video instructions.
-   - Consider i18n for the docs site itself (the app is translated; the docs are not).
-   - Configure deployment (no hosting provider configured yet).
-   - Re-add a `Topics`/guitar-theory page if/when the app wires that feature to a route
-     (currently dormant code only).
+   - Done — favicon/logo: solyto logo used as `public/favicon.png` (already wired in
+     `astro.config.mjs`).
+   - Done — video placeholders: `src/components/VideoPlaceholder.astro` + sections on
+     `getting-started/how.mdx`, `getting-started/first-steps.mdx`,
+     `self-hosting/installation.mdx` (converted to `.mdx` to import the component).
+   - Done — i18n infrastructure: English at root, `de`/`fr`/`es` locales scaffolded in
+     `astro.config.mjs`, `src/content/docs/{de,fr,es}/` dirs, language switcher enabled,
+     and untranslated pages fall back to English with a notice. Content translation is
+     still pending — per-language checklists live in `translations/`.
+   - Pending — translate the docs content into `de`/`fr`/`es` using a competent
+     translation model, filling in the `translations/{de,fr,es}.md` checklists.
+   - Pending — configure deployment (no hosting provider configured yet).
+   - Pending — re-add a `Topics`/guitar-theory page if/when the app wires that feature
+     to a route (currently dormant code only).
 
 ## Ongoing maintenance notes
 
