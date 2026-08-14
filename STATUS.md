@@ -100,4 +100,4 @@
 - [ ] Add favicon/logo (currently default Astro favicon)
 - [ ] Consider: video placeholder sections for future video instructions
 - [ ] Consider: i18n support for the docs site itself
-- [ ] Consider: deployment config (no hosting provider configured yet)
+- [x] Deployment config added (`deployment/playbooks/docs.yml` + `templates/docs/`, deploy via `make deploy-docs`); not yet deployed live
