@@ -13,20 +13,22 @@ Keeping solyto up to date ensures you have the latest features, bug fixes, and s
 
 ## Back up your data
 
-Before any upgrade, create backups of your databases and storage:
+Before any upgrade, create backups of your databases and storage. The selfhosted repo's [README](https://github.com/solyto/selfhosted) includes a full restic-based backup script; the essentials are:
 
 ```bash
-# Back up MariaDB
-docker compose exec mariadb mysqldump -u root -p solyto > backup_mariadb.sql
+# Back up MariaDB (database: api)
+docker exec -e MYSQL_PWD="$(cat secrets/mariadb_root_password)" <project>-mariadb \
+  mariadb-dump -u root --databases api > backup_mariadb.sql
 
-# Back up PostgreSQL
-docker compose exec postgres pg_dump -U solyto_dav solyto_dav > backup_postgres.sql
+# Back up PostgreSQL (database: dav)
+docker exec -e PGPASSWORD="$(cat secrets/postgres_root_password)" <project>-postgres \
+  pg_dump -U postgres --clean --create dav > backup_postgres.sql
 
 # Back up storage
 tar -czf backup_storage.tar.gz storage/
 ```
 
-Store these backups outside the server or in a separate location.
+Replace `<project>` with your `PROJECT_NAME` (default `solyto`). Store these backups outside the server or in a separate location.
 
 ## Upgrade process
 
@@ -85,4 +87,4 @@ If an upgrade causes issues:
 3. Restore your database backups if needed
 4. Start the services: `docker compose up -d`
 
-Database downgrades may not be supported if migrations made irreversible changes. This is why backups are essential.
+Note that a verifiable downgrade strategy is not yet available — rollbacks rely on reversing the Laravel migrations released with each image, so backups are essential.

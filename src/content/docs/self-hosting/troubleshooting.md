@@ -68,7 +68,7 @@ docker compose restart api queue
 
 ## TLS certificate issues
 
-**Symptoms:** Browser shows security warning, `acme.json` is empty, Traefik logs show certificate errors.
+**Symptoms:** Browser shows security warning, Traefik certificate errors.
 
 **Checks:**
 
@@ -81,11 +81,11 @@ docker compose restart api queue
 
 ```bash
 docker compose down
-docker volume rm selfhosted_traefik_acme
+docker volume rm <project>_traefik_acme
 docker compose up -d
 ```
 
-Traefik will request new certificates on startup.
+Replace `<project>` with your `PROJECT_NAME`. Traefik will request new certificates on startup.
 
 ## Permission problems with storage/
 
@@ -124,7 +124,7 @@ The `storage/` directory is shared between `api`, `dav`, `queue`, `nginx`, and `
 1. Is the queue worker running? `docker compose ps queue`
 2. Check queue logs: `docker compose logs queue`
 3. Verify Redis is running: `docker compose ps redis`
-4. Check Redis connectivity: `docker compose exec api php artisan tinker` then try a Redis command
+4. Check Redis connectivity: `docker compose exec api so tinker` then try a Redis command
 
 **Restart the queue worker:**
 

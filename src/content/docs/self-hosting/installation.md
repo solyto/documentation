@@ -158,13 +158,15 @@ Open `https://app.example.com` in your browser. You should see the solyto login 
 
 ## Creating your first user
 
-On first launch, the registration page is available. Create your account with:
+The registration page is available at `https://app.example.com/auth/register` — create your account with a display name, email address, and a password (minimum 12 characters).
 
-- A display name
-- An email address
-- A password (minimum 12 characters)
+Alternatively, create a user from the command line:
 
-After creating your account, you're logged in and ready to use solyto.
+```bash
+docker exec -it <project>-api so users:create
+```
+
+Replace `<project>` with your `PROJECT_NAME` (default `solyto`). If you changed the project name, adjust the container name accordingly.
 
 ## Next steps
 

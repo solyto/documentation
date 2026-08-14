@@ -24,7 +24,7 @@ Docker Compose mounts these files as read-only into containers under `/run/secre
 
 ## Required secrets
 
-These 9 secrets must be present for solyto to start:
+These 7 secrets must be present for solyto to start:
 
 | Secret | Description | Used by |
 |--------|-------------|---------|
@@ -33,10 +33,10 @@ These 9 secrets must be present for solyto to start:
 | `db_password` | MariaDB application password | api, queue, mariadb |
 | `dav_db_user` | PostgreSQL DAV user | dav, postgres |
 | `dav_db_password` | PostgreSQL DAV password | dav, postgres |
-| `mariadb_user` | MariaDB user (for initialization) | mariadb |
-| `mariadb_password` | MariaDB password (for initialization) | mariadb |
 | `mariadb_root_password` | MariaDB root password | mariadb |
 | `postgres_root_password` | PostgreSQL superuser password | postgres |
+
+The MariaDB user and password are provided by `db_user` / `db_password` (the same credentials the API uses).
 
 ## Optional secrets
 
@@ -47,7 +47,7 @@ These 11 secrets enable optional features. Create empty files or omit them if no
 | `solyto_bot_webhook_token` | Telegram bot webhook token | [Telegram Bot](/integrations/telegram/) |
 | `solyto_bot_telegram_token` | Telegram bot API token | Telegram Bot |
 | `hardcover_api_key` | Hardcover book API key | Book metadata imports |
-| `ai_api_key` | OpenAI API key | [AI Assistants](/account/ai-assistants/) |
+| `ai_api_key` | AI provider API key | [Library recommendations](/account/ai-assistants/) |
 | `mailgun_secret` | Mailgun API key | Email notifications |
 | `vapid_public_key` | Web Push public key | Browser push notifications |
 | `vapid_private_key` | Web Push private key | Browser push notifications |

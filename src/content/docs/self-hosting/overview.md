@@ -15,17 +15,12 @@ solyto is fully self-hostable. All components are published as Docker images, an
 
 ## System requirements
 
-| Resource | Minimum | Recommended |
-|----------|---------|-------------|
-| RAM | 2 GB | 4 GB |
-| Storage | 10 GB | 20 GB |
-| CPU | 1 core | 2 cores |
-| Software | Docker + Docker Compose | Docker + Docker Compose |
+The only software requirement is **Docker** and **Docker Compose** — everything else runs inside containers. solyto is lightweight: it runs comfortably on a Raspberry Pi, and any VPS or root server is more than sufficient.
 
 You also need:
 
 - A server reachable from the internet (VPS, dedicated server, or home server with port forwarding)
-- Domain names pointing to your server's IP address
+- Three domain names pointing to your server's IP address (app, api, dav)
 - A valid email address for TLS certificate generation (Let's Encrypt)
 
 ## Architecture

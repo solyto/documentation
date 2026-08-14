@@ -40,9 +40,13 @@ These are the domain names pointing to your server. Each service gets its own (s
 |----------|-------------|---------|
 | `NODE_ENV` | Node.js environment | `production` |
 | `PUBLIC_API_URL` | URL the frontend uses to reach the API | `https://${API_DOMAIN}` |
-| `PUBLIC_DISABLE_DEV_REQUESTS` | Hide the Dev Requests section | (empty) |
+| `PUBLIC_DISABLE_DEV_REQUESTS` | Hide the Dev Requests section | `true` |
+| `PUBLIC_REDIRECT_AFTER_LOGOUT` | URL to redirect to after logout | `${APP_URL}` |
+| `PUBLIC_LEGAL_NOTICE_URL` | Link for the legal notice button | (empty) |
+| `PUBLIC_PRIVACY_URL` | Link for the privacy policy button | (empty) |
+| `PUBLIC_TERMS_URL` | Link for the terms of service button | (empty) |
 
-Set `PUBLIC_DISABLE_DEV_REQUESTS=true` to hide the Dev Requests link and disable the route entirely.
+Set `PUBLIC_DISABLE_DEV_REQUESTS=true` to hide the Dev Requests link and disable the route entirely (the default on self-hosted instances, since requests wouldn't reach the solyto team). Set any of the `PUBLIC_*_URL` variables to show a legal-notice button linking to your own imprint, privacy policy, or terms.
 
 ## Database versions
 
@@ -59,7 +63,7 @@ Set `PUBLIC_DISABLE_DEV_REQUESTS=true` to hide the Dev Requests link and disable
 | `DB_CONNECTION` | Database driver | `mariadb` |
 | `DB_HOST` | MariaDB hostname | `mariadb` |
 | `DB_PORT` | MariaDB port | `3306` |
-| `DB_DATABASE` | Database name | `solyto` |
+| `DB_DATABASE` | Database name | `api` |
 
 Credentials (`DB_USER`, `DB_PASSWORD`) are read from Docker secrets (`db_user`, `db_password`). The MariaDB root password is read from `mariadb_root_password`.
 
@@ -69,7 +73,7 @@ Credentials (`DB_USER`, `DB_PASSWORD`) are read from Docker secrets (`db_user`, 
 |----------|-------------|---------|
 | `DAV_DB_HOST` | PostgreSQL hostname | `postgres` |
 | `DAV_DB_PORT` | PostgreSQL port | `5432` |
-| `DAV_DB_DATABASE` | DAV database name | `solyto_dav` |
+| `DAV_DB_DATABASE` | DAV database name | `dav` |
 
 Credentials are read from Docker secrets (`dav_db_user`, `dav_db_password`). The PostgreSQL root password is read from `postgres_root_password`.
 
@@ -87,7 +91,7 @@ Credentials are read from Docker secrets (`dav_db_user`, `dav_db_password`). The
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `TRUSTED_PROXIES` | Trusted proxy IPs (Traefik) | `172.16.0.0/12` |
+| `TRUSTED_PROXIES` | Trusted proxy IPs (needed when using an external reverse proxy) | (empty) |
 
 ## Timezone
 
@@ -101,10 +105,10 @@ This affects PHP and queue worker timezone settings.
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `AI_BASE_URL` | OpenAI-compatible API base URL | OpenAI default |
-| `AI_MODEL` | Default AI model | `gpt-4o` |
+| `AI_BASE_URL` | OpenAI-compatible API base URL | (empty — OpenAI default) |
+| `AI_MODEL` | Default AI model | `gpt-4o-mini` |
 
-The API key is stored in the `ai_api_key` Docker secret. This is only needed if you want to use [AI Assistants](/account/ai-assistants/) server-side.
+The API key is stored in the `ai_api_key` Docker secret. This is only needed if you want to use [library recommendations](/account/ai-assistants/).
 
 ## Mail
 
