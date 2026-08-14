@@ -7,7 +7,7 @@ solyto comes with 10 built-in themes that change the look and feel of the entire
 
 ## Changing your theme
 
-1. Go to **Settings → Appearance → Theme**
+1. Go to **Settings → App**
 2. Select a theme from the list
 3. The change is **applied immediately** — no reload needed
 
