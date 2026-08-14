@@ -8,7 +8,7 @@ dist/
 
 # manigot infra mount files / stray helper project
 AGENTS.md
-docs/
+/docs/
 
 # dependencies
 node_modules/

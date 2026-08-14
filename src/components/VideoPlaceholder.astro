@@ -1,0 +1,51 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+	duration?: string;
+	href?: string;
+	status?: 'planned' | 'recording' | 'ready';
+}
+
+const {
+	title,
+	description,
+	duration,
+	href,
+	status = 'planned',
+} = Astro.props;
+
+const statusLabel = {
+	planned: 'Video coming soon',
+	recording: 'In production',
+	ready: 'Watch now',
+} as const;
+---
+
+{
+	href ? (
+		<a class="video-placeholder" href={href}>
+			<slot />
+			<span class="video-placeholder__body">
+				<span class="video-placeholder__badge">{statusLabel[status]}</span>
+				<span class="video-placeholder__title">{title}</span>
+				{description && <span class="video-placeholder__description">{description}</span>}
+				{duration && <span class="video-placeholder__meta">{duration}</span>}
+			</span>
+		</a>
+	) : (
+		<div class="video-placeholder">
+			<span class="video-placeholder__thumb" aria-hidden="true">
+				<svg viewBox="0 0 24 24" fill="currentColor">
+					<path d="M8 5.14v13.72a1 1 0 0 0 1.5.87l11-6.86a1 1 0 0 0 0-1.74l-11-6.86A1 1 0 0 0 8 5.14Z" />
+				</svg>
+			</span>
+			<span class="video-placeholder__body">
+				<span class="video-placeholder__badge">{statusLabel[status]}</span>
+				<span class="video-placeholder__title">{title}</span>
+				{description && <span class="video-placeholder__description">{description}</span>}
+				{duration && <span class="video-placeholder__meta">{duration}</span>}
+			</span>
+		</div>
+	)
+}

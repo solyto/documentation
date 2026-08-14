@@ -1,0 +1,187 @@
+---
+title: Installation
+description: Guide étape par étape pour installer solyto sur votre serveur.
+---
+
+import VideoPlaceholder from '../../../components/VideoPlaceholder.astro';
+
+Ce guide vous accompagne dans le déploiement de solyto sur votre propre serveur avec Docker.
+
+## Prérequis
+
+Avant de commencer, assurez-vous d'avoir :
+
+- Un serveur (VPS, dédié, ou serveur personnel) avec au moins 2 Go de RAM et 10 Go de stockage
+- **Docker** et **Docker Compose** installés
+- Trois noms de domaine (ou sous-domaines) pointant vers l'adresse IP de votre serveur :
+  - `app.example.com` — le frontend
+  - `api.example.com` — l'API
+  - `dav.example.com` — CalDAV/CardDAV
+- Une adresse e-mail valide pour les certificats TLS Let's Encrypt
+- Les ports **80** et **443** ouverts sur votre pare-feu
+
+## Configuration DNS
+
+Pointez vos trois noms de domaine vers l'adresse IP publique de votre serveur :
+
+```
+app.example.com   A   your.server.ip
+api.example.com   A   your.server.ip
+dav.example.com   A   your.server.ip
+```
+
+Attendez la propagation DNS avant de continuer (généralement quelques minutes, jusqu'à 24 heures).
+
+## Installation en une étape
+
+Le moyen le plus rapide d'installer solyto est d'utiliser le script d'installation :
+
+```bash
+curl -fsSL "https://raw.githubusercontent.com/solyto/selfhosted/main/setup.sh?$(date +%s)" | bash
+```
+
+Le script d'installation va :
+
+1. Cloner le [dépôt selfhosted](https://github.com/solyto/selfhosted)
+2. Créer les répertoires requis (`storage/`, `bootstrap/cache/`, etc.)
+3. Vous demander interactivement :
+   - **API_DOMAIN** — par ex. `api.example.com`
+   - **APP_DOMAIN** — par ex. `app.example.com`
+   - **DAV_DOMAIN** — par ex. `dav.example.com`
+   - **ACME_EMAIL** — votre e-mail pour Let's Encrypt
+4. Générer tous les secrets requis (mots de passe de base de données, clé d'application, etc.)
+5. Écrire le tout dans `.env` et `./secrets/`
+
+Une fois le script terminé, démarrez les services :
+
+```bash
+cd selfhosted
+docker compose up -d
+```
+
+## Installation manuelle
+
+Si vous préférez tout faire manuellement :
+
+### 1. Cloner le dépôt
+
+```bash
+git clone https://github.com/solyto/selfhosted.git
+cd selfhosted
+```
+
+### 2. Créer les répertoires
+
+```bash
+mkdir -p storage/app/public
+mkdir -p storage/framework/cache
+mkdir -p storage/framework/sessions
+mkdir -p storage/framework/views
+mkdir -p storage/logs
+mkdir -p bootstrap/cache
+chown -R www-data:www-data storage/
+```
+
+### 3. Configurer l'environnement
+
+Copiez le fichier d'environnement d'exemple et modifiez-le :
+
+```bash
+cp .env.example .env
+```
+
+Modifiez `.env` avec vos noms de domaine, votre fuseau horaire et vos préférences. Consultez [Configuration](/self-hosting/configuration/) pour toutes les options disponibles.
+
+### 4. Générer les secrets
+
+Créez le répertoire `./secrets/` et générez les fichiers de secrets requis :
+
+```bash
+mkdir -p secrets
+
+# Clé d'application
+echo "base64:$(openssl rand -base64 32)" > secrets/app_key
+
+# MariaDB
+echo "solyto" > secrets/db_user
+openssl rand -hex 32 > secrets/db_password
+echo "solyto" > secrets/mariadb_user
+openssl rand -hex 32 > secrets/mariadb_password
+openssl rand -hex 32 > secrets/mariadb_root_password
+
+# PostgreSQL (DAV)
+echo "solyto_dav" > secrets/dav_db_user
+openssl rand -hex 32 > secrets/dav_db_password
+openssl rand -hex 32 > secrets/postgres_root_password
+
+# Secrets optionnels (créer des fichiers vides)
+touch secrets/solyto_bot_webhook_token
+touch secrets/solyto_bot_telegram_token
+touch secrets/hardcover_api_key
+touch secrets/ai_api_key
+touch secrets/mailgun_secret
+touch secrets/vapid_public_key
+touch secrets/vapid_private_key
+touch secrets/bgg_api_key
+touch secrets/tmdb_access_token
+touch secrets/imgproxy_key
+touch secrets/imgproxy_salt
+```
+
+Consultez [Secrets Docker](/self-hosting/secrets/) pour des détails sur chaque secret.
+
+### 5. Démarrer les services
+
+```bash
+docker compose up -d
+```
+
+## Vérifier l'installation
+
+### Vérifier l'état des conteneurs
+
+```bash
+docker compose ps
+```
+
+Tous les services doivent afficher le statut `Up` ou `Up (healthy)`.
+
+### Vérifier le point de contrôle de santé de l'API
+
+```bash
+curl -s https://api.example.com/api/v1/health
+```
+
+Une réponse réussie signifie que l'API fonctionne et est connectée à la base de données.
+
+### Accéder à l'application
+
+Ouvrez `https://app.example.com` dans votre navigateur. Vous devriez voir la page de connexion de solyto.
+
+## Créer votre premier utilisateur
+
+La page d'inscription est disponible à `https://app.example.com/auth/register` — créez votre compte avec un nom d'affichage, une adresse e-mail et un mot de passe (minimum 12 caractères).
+
+Vous pouvez aussi créer un utilisateur en ligne de commande :
+
+```bash
+docker exec -it <project>-api so users:create
+```
+
+Remplacez `<project>` par votre `PROJECT_NAME` (par défaut `solyto`). Si vous avez changé le nom du projet, ajustez le nom du conteneur en conséquence.
+
+## Étapes suivantes
+
+- [Configuration](/self-hosting/configuration/) — ajustez vos variables d'environnement
+- [Secrets Docker](/self-hosting/secrets/) — configurez les intégrations optionnelles
+- [Mise à jour](/self-hosting/upgrading/) — comment garder solyto à jour
+
+## Guide vidéo
+
+Une vidéo étape par étape du processus d'installation est en préparation et sera intégrée ici.
+
+<VideoPlaceholder
+  title="Installer solyto sur un serveur vierge"
+  description="Pointez vos domaines vers le serveur, exécutez le script d'installation et démarrez la pile applicative."
+  duration="~10 min"
+/>

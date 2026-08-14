@@ -1,0 +1,101 @@
+---
+title: Cómo usar solyto
+description: Empieza con solyto — hosted, local o self-hosted.
+---
+
+import VideoPlaceholder from '../../../components/VideoPlaceholder.astro';
+
+Elige cómo quieres ejecutar solyto y sigue los pasos a continuación.
+
+## Opción 1: solyto.app (hosted)
+
+La forma más rápida. Sin instalación, sin configuración.
+
+1. Ve a [solyto.app](https://solyto.app)
+2. Haz clic en **Crear cuenta**
+3. Introduce tu correo electrónico y contraseña
+4. Verifica tu dirección de correo (revisa tu bandeja de entrada)
+5. Inicia sesión — ya está todo listo
+
+Eso es todo. Tus datos se almacenan en servidores alojados en la UE, totalmente cifrados y conformes con el RGPD.
+
+## Opción 2: Desarrollo local con Docker
+
+Ejecuta la pila completa de solyto en tu máquina para desarrollo o pruebas.
+
+### Requisitos
+
+- [Git](https://git-scm.com/)
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/) (incluido con Docker Desktop)
+
+### Configuración
+
+```bash
+git clone https://github.com/solyto/localdocker
+cd localdocker
+cp .env.example .env
+docker compose up -d --build
+```
+
+La primera ejecución descargará todas las imágenes e inicializará las bases de datos. Esto puede tardar unos minutos.
+
+Si trabajas desde el checkout del [espacio de trabajo de solyto](https://github.com/solyto/solyto), `make install` clona los repositorios de los servicios y hace todo lo anterior por ti.
+
+### Accede a tu instancia local
+
+| Servicio      | URL                      |
+|--------------|--------------------------|
+| App (Vite)   | http://localhost:5173    |
+| API (nginx)  | http://localhost:8000    |
+| Página de aterrizaje | http://localhost:5174    |
+| Imgproxy     | http://localhost:8088    |
+
+### Configuración inicial de la base de datos
+
+Si las bases de datos no se inicializan automáticamente, ejecuta:
+
+```bash
+docker compose exec api php artisan migrate
+docker compose exec api php artisan db:seed
+```
+
+### Detener
+
+```bash
+docker compose down
+```
+
+Para detener y eliminar todos los datos (inicio limpio):
+
+```bash
+docker compose down -v
+```
+
+## Opción 3: Self-hosting
+
+Despliega solyto en tu propio servidor con control total sobre tus datos. Esto implica configurar Traefik, certificados TLS y varios servicios Docker.
+
+Consulta la guía dedicada de [Self-Hosting](/self-hosting/overview/) para las instrucciones completas de configuración.
+
+## Video tutoriales
+
+Los videos guiados para cada opción de configuración están en camino y se incrustarán aquí.
+
+<VideoPlaceholder
+  title="Primeros pasos con solyto"
+  description="Un recorrido rápido por la app: tu panel, Agregar rápido y las funciones clave."
+  duration="~5 min"
+/>
+
+<VideoPlaceholder
+  title="Ejecutar solyto localmente con Docker"
+  description="Clona el repositorio localdocker, configura tu entorno e inicia la pila completa."
+  duration="~8 min"
+/>
+
+<VideoPlaceholder
+  title="Self-hosting de solyto en tu propio servidor"
+  description="Configuración de DNS, el script de instalación en un solo paso y verificación de tu instancia."
+  duration="~12 min"
+/>

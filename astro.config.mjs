@@ -9,6 +9,28 @@ export default defineConfig({
 		starlight({
 			title: 'solyto docs',
 			description: 'Documentation for solyto — the free, private, all-in-one personal management app.',
+			// English is served at the root and doubles as the fallback locale.
+			// German, French, and Spanish are scaffolded: untranslated pages fall
+			// back to English with a "not yet translated" notice. See translations/.
+			defaultLocale: 'root',
+			locales: {
+				root: {
+					label: 'English',
+					lang: 'en',
+				},
+				de: {
+					label: 'Deutsch',
+					lang: 'de',
+				},
+				fr: {
+					label: 'Français',
+					lang: 'fr',
+				},
+				es: {
+					label: 'Español',
+					lang: 'es',
+				},
+			},
 			favicon: '/favicon.png',
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/solyto' },

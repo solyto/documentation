@@ -1,0 +1,52 @@
+---
+title: solyto documentation
+description: L'application de gestion personnelle gratuite, privée et tout-en-un.
+template: splash
+hero:
+  tagline: Tout ce dont vous avez besoin. Rien de superflu. Aucun traçage, aucun abonnement.
+  actions:
+    - text: Commencer
+      link: /getting-started/what/
+      icon: right-arrow
+    - text: Auto-hébergement
+      link: /self-hosting/overview/
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Que trouve-t-on dans solyto ?
+
+<CardGrid stagger>
+	<Card title="Bibliothèques" icon="open-book">
+		Suivez vos livres, votre musique, vos films, vos jeux, vos recettes, vos liens, vos citations et vos plantes. Votre collection, organisée à votre façon — avec recherche, notations, genres et listes de souhaits.
+	</Card>
+	<Card title="Tâches" icon="list-format">
+		Tâches, projets, échéances. Cochez-les, et sentez-vous bien. Aucune gamification, aucune série de jours culpabilisante.
+	</Card>
+	<Card title="Calendrier" icon="calendar">
+		Votre emploi du temps sans le superflu. Synchronisation CalDAV si besoin. Aucune suggestion « intelligente », aucun spam de réunions.
+	</Card>
+	<Card title="Actualités" icon="rss">
+		Des flux RSS provenant des sources que vous choisissez. Aucun algorithme ne décide ce que vous devriez lire.
+	</Card>
+	<Card title="Carnet de notes" icon="document">
+		Notes et réflexions. Écrivez, organisez, retrouvez plus tard.
+	</Card>
+	<Card title="Contacts" icon="puzzle">
+		Votre carnet d'adresses, synchronisé entre appareils. Compatible CardDAV, axé sur la confidentialité.
+	</Card>
+	<Card title="Finances" icon="information">
+		Suivez vos dépenses et vos revenus. Un budget simple — sans complexité, sans revente de vos données financières.
+	</Card>
+	<Card title="Presse-papiers" icon="laptop">
+		Copiez sur votre téléphone, collez sur votre ordinateur. Un presse-papiers partagé entre tous vos appareils — sans câbles, sans AirDrop, sans contournement.
+	</Card>
+	<Card title="Check-in quotidien" icon="approve-check">
+		Faites le point sur votre journée. Suivi de l'humeur, journal et création d'habitudes, réunis en un seul endroit.
+	</Card>
+	<Card title="Suivi du temps" icon="rocket">
+		Sachez où passe votre temps. Suivez vos projets, vos heures facturables et votre productivité, sans stress.
+	</Card>
+</CardGrid>

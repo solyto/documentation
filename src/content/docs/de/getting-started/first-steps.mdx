@@ -1,0 +1,93 @@
+---
+title: Erste Schritte
+description: Was du nach dem Erstellen deines solyto-Kontos tun solltest.
+---
+
+import VideoPlaceholder from '../../../components/VideoPlaceholder.astro';
+
+Egal, ob du solyto.app oder eine lokale bzw. selbst gehostete Instanz nutzt — hier erfährst du, was nach dem Erstellen deines Kontos zu tun ist.
+
+## Onboarding-Dialog
+
+Bei deiner ersten Anmeldung zeigt dir solyto einen Onboarding-Dialog mit vier Schritten:
+
+1. **Welcome** — eine kurze Einführung
+2. **Localization** — lege deine Sprache, Zeitzone, dein Datumsformat und dein Uhrzeitformat fest
+3. **Features** — wähle aus, welche Funktionen in der Navigation aktiviert werden sollen
+4. **Ready** — fertig eingerichtet
+
+Diese Einstellungen kannst du jederzeit später in den **Einstellungen** ändern.
+
+## Willkommenstour
+
+Nach dem Onboarding-Dialog führt dich eine geführte Tour durch jede von dir aktivierte Funktion. Du kannst sie jederzeit über **Einstellungen → App → Restart Tour** neu starten.
+
+## Deine Präferenzen konfigurieren
+
+Gehe zu den **Einstellungen** und richte Folgendes ein:
+
+| Einstellung | Wo | Was sie bewirkt |
+|---------|-------|-------------|
+| Sprache | Einstellungen → Lokalisierung | Englisch, Deutsch, Französisch oder Spanisch |
+| Zeitzone | Einstellungen → Lokalisierung | Legt deine lokale Zeitzone für Kalender, Erinnerungen und Check-In fest |
+| Datumsformat | Einstellungen → Lokalisierung | Wähle zwischen DD.MM.YYYY, MM/DD/YYYY, YYYY-MM-DD und weiteren |
+| Uhrzeitformat | Einstellungen → Lokalisierung | 12- oder 24-Stunden-Format |
+| Theme | Einstellungen → App | Wähle aus 10 integrierten Themes |
+| Animationen | Einstellungen → App | CSS-/JS-Animationen ein- oder ausschalten |
+
+Das Wetter-Widget auf dem Dashboard hat eine eigene Stadtauswahl — klicke auf den Stadtnamen, um deinen Standort zu wählen und zwischen °C/°F umzuschalten.
+
+## Funktionen aktivieren oder deaktivieren
+
+Nicht jede Funktion ist für jeden relevant. Gehe zu **Einstellungen → Features** und schalte Funktionen ein oder aus. Deaktivierte Funktionen werden aus der Navigation und dem Dashboard ausgeblendet.
+
+Du kannst sie jederzeit wieder aktivieren.
+
+## Den Telegram-Bot verbinden
+
+Mit dem Telegram-Bot kannst du Links speichern und eine tägliche Zusammenfassung erhalten, ohne die App zu öffnen.
+
+1. Gehe zu **Einstellungen → Notifications**
+2. Klicke auf **Telegram Bot** und kopiere den eindeutigen Verbindungs-Token
+3. Sende den Token über `/connect <token>` an den solyto-Bot auf Telegram
+4. Dein Konto ist jetzt verknüpft
+
+Details findest du unter [Telegram-Bot](/integrations/telegram/).
+
+## CalDAV-/CardDAV-Sync einrichten
+
+Wenn du eine externe Kalender- oder Kontakte-App verwendest (Apple Kalender, DAVx, Thunderbird usw.), kannst du sie über CalDAV und CardDAV synchronisieren.
+
+solyto betreibt einen SabreDAV-kompatiblen Server. Die Verbindungsdetails findest du unter **Einstellungen → Notifications** (oder siehe [CalDAV/CardDAV-Sync](/integrations/dav-sync/)).
+
+## Bestehende Daten importieren
+
+Wechselst du von einem anderen Tool? solyto unterstützt den Import von Daten aus gängigen Quellen:
+
+- **Todos** — Import aus einer externen Quelle
+- **Kontakte** — Import über CardDAV (vCard)
+- **Kalender** — Import über CalDAV (.ics)
+- **Musik / Bücher / Filme / Spiele** — Import von Deezer, Discogs, Hardcover, Goodreads, IMDb, Steam, BoardGameGeek und mehr
+
+Details findest du unter [Importieren](/integrations/importing/).
+
+## Entdecken
+
+Du bist startklar. Hier sind ein paar Dinge, die du ausprobieren kannst:
+
+- Füge ein paar Todos über die [Ein-Zeilen-Syntax](/features/todos/#one-line-creation) hinzu
+- Abonniere einen RSS-Feed unter [Feeds](/features/feeds/)
+- Erfasse deine heutige Stimmung im [Daily Check-In](/features/check-in/)
+- Füge ein Buch oder Album zu deinen [Bibliotheken](/features/libraries/overview/) hinzu
+- Beginne, Zeit für ein Projekt in der [Zeiterfassung](/features/time-tracking/) zu erfassen
+- Sende einen Link an den [Telegram-Bot](/integrations/telegram/) und beobachte, wie er in deiner Link-Bibliothek erscheint
+
+## Video-Rundgang
+
+Ein geführtes Video zu deinem ersten Tag mit solyto ist in Vorbereitung und wird hier eingebettet.
+
+<VideoPlaceholder
+  title="Dein erster Tag mit solyto"
+  description="Von der Kontoerstellung bis zu deinen ersten Todos, Feeds und deinem täglichen Check-In."
+  duration="~6 Min."
+/>
