@@ -10,15 +10,15 @@ Whether you're using solyto.app or a local/self-hosted instance, here's what to 
 On your first login, solyto shows an onboarding modal with four steps:
 
 1. **Welcome** — a brief introduction
-2. **Localization** — set your timezone, date format, and time format
-3. **Features** — choose which features to enable
+2. **Localization** — set your language, timezone, date format, and time format
+3. **Features** — choose which features to enable in the navigation
 4. **Ready** — you're all set
 
 You can always change these later in **Settings**.
 
 ## Welcome tour
 
-After the onboarding modal, a guided tour walks you through each feature. You can restart it anytime from **Settings → General → Restart Tour**.
+After the onboarding modal, a guided tour walks you through each feature you enabled. You can restart it anytime from **Settings → App → Restart Tour**.
 
 ## Configure your preferences
 
@@ -26,11 +26,14 @@ Head to **Settings** and set up the following:
 
 | Setting | Where | What it does |
 |---------|-------|-------------|
-| Timezone | Settings → General | Sets your local timezone for calendar and check-in |
-| Date format | Settings → General | Choose between DD/MM/YYYY, MM/DD/YYYY, YYYY-MM-DD |
-| Time format | Settings → General | 12-hour or 24-hour clock |
-| Weather city | Settings → General | Shows weather on the dashboard |
-| Theme | Settings → Themes | Pick a theme — light, dark, or custom |
+| Language | Settings → Localization | English, German, French, or Spanish |
+| Timezone | Settings → Localization | Sets your local timezone for calendar, reminders, and check-in |
+| Date format | Settings → Localization | Choose between DD.MM.YYYY, MM/DD/YYYY, YYYY-MM-DD, and more |
+| Time format | Settings → Localization | 12-hour or 24-hour clock |
+| Theme | Settings → App | Pick from 10 built-in themes |
+| Animations | Settings → App | Turn CSS/JS animations on or off |
+
+The weather widget on the dashboard has its own city picker — click the city name to choose your location and toggle °C/°F.
 
 ## Enable or disable features
 
@@ -42,9 +45,9 @@ You can always re-enable them later.
 
 The Telegram bot lets you save links and receive a daily digest without opening the app.
 
-1. Go to **Settings → Integrations → Telegram**
-2. Click **Connect** and copy the unique code
-3. Open the solyto bot on Telegram and send `/start <your-code>`
+1. Go to **Settings → Notifications**
+2. Click **Telegram Bot** and copy the unique connection token
+3. Send the token to the solyto bot on Telegram using `/connect <token>`
 4. Your account is linked
 
 See [Telegram Bot](/integrations/telegram/) for details.
@@ -53,18 +56,16 @@ See [Telegram Bot](/integrations/telegram/) for details.
 
 If you use an external calendar or contacts app (Apple Calendar, DAVx, Thunderbird, etc.), you can sync via CalDAV and CardDAV.
 
-solyto runs a SabreDAV-compatible server. Connection details are available in **Settings → Integrations → CalDAV/CardDAV**.
-
-See [CalDAV/CardDAV Sync](/integrations/dav-sync/) for setup instructions per client.
+solyto runs a SabreDAV-compatible server. Connection details are available in **Settings → Notifications** (or see [CalDAV/CardDAV Sync](/integrations/dav-sync/)).
 
 ## Import existing data
 
-Moving from another tool? solyto supports importing data from common formats:
+Moving from another tool? solyto supports importing data from common sources:
 
-- **Todos** — import from JSON
-- **Contacts** — import from vCard (.vcf)
-- **Calendar** — import from .ics
-- **Bookmarks / RSS** — import from OPML
+- **Todos** — import from an external source
+- **Contacts** — import from CardDAV (vCard)
+- **Calendar** — import from CalDAV (.ics)
+- **Music / Books / Movies / Games** — import from Deezer, Discogs, Hardcover, Goodreads, IMDb, Steam, BoardGameGeek, and more
 
 See [Importing](/integrations/importing/) for details.
 

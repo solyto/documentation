@@ -33,17 +33,19 @@ Run the full solyto stack on your machine for development or testing.
 git clone https://github.com/solyto/localdocker
 cd localdocker
 cp .env.example .env
-docker compose up -d
+docker compose up -d --build
 ```
 
 The first run will pull all images and initialize the databases. This may take a few minutes.
+
+If you're working from the [solyto workspace](https://github.com/solyto/solyto) checkout, `make install` clones the service repos and does all of the above for you.
 
 ### Access your local instance
 
 | Service      | URL                      |
 |--------------|--------------------------|
 | App (Vite)   | http://localhost:5173    |
-| API          | http://localhost:8000    |
+| API (nginx)  | http://localhost:8000    |
 | Landing page | http://localhost:5174    |
 | Imgproxy     | http://localhost:8088    |
 
