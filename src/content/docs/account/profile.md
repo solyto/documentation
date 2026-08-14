@@ -11,7 +11,7 @@ The **Profile** page shows your avatar, name, and user ID. From here you can:
 
 - **Change your profile image** — click the avatar and choose a new image (2 MB max)
 - **Manage friends** — see your friend list and handle incoming/outgoing friend requests
-- **Admin** — if you're an admin, a shield icon links to the [Admin](/account/dev-requests/) area
+- **Admin** — if you're an admin, a shield icon links to the Admin area
 - **Log out** — sign out of the current device
 
 ## Settings
