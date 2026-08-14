@@ -22,7 +22,6 @@ Every feature is included. No tiers, no upgrades, no "coming soon."
 - [Notes](/features/notes/) — notes and thoughts, organized your way
 - [Contacts](/features/contacts/) — address book with CardDAV sync
 - [Clipboard](/features/clipboard/) — shared clipboard across devices
-- [Topics](/features/topics/) — organize research and ideas
 
 **Libraries**
 

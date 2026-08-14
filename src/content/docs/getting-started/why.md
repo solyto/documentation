@@ -27,7 +27,7 @@ solyto was built out of frustration with all of the above. It replaces an entire
 | Toggl, Clockify | [Time Tracking](/features/time-tracking/) |
 | Daylio, Bearable | [Daily Check-In](/features/check-in/) |
 
-And then there's more that those apps never covered: a shared [Clipboard](/features/clipboard/) across devices, [Topics](/features/topics/) for organizing research, a [Telegram Bot](/integrations/telegram/) for quick capture and daily digests, and AI Assistants to help you work with your own data.
+And then there's more that those apps never covered: a shared [Clipboard](/features/clipboard/) across devices, a [Telegram Bot](/integrations/telegram/) for quick capture and daily digests, and AI Assistants to help you work with your own data.
 
 ## Core principles
 

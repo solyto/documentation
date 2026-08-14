@@ -44,7 +44,6 @@ export default defineConfig({
 						{ label: 'Time Tracking', slug: 'features/time-tracking' },
 						{ label: 'Finances', slug: 'features/finances' },
 						{ label: 'Clipboard', slug: 'features/clipboard' },
-						{ label: 'Topics', slug: 'features/topics' },
 						{
 							label: 'Libraries',
 							items: [
