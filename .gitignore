@@ -3,6 +3,13 @@ dist/
 # generated types
 .astro/
 
+# manigot job runtime state
+.manigot/
+
+# manigot infra mount files / stray helper project
+AGENTS.md
+docs/
+
 # dependencies
 node_modules/
 

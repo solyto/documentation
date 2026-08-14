@@ -34,7 +34,7 @@ Nothing happens in the background without your knowledge.
 
 ## Self-hosting
 
-If you self-host solyto, your data never leaves your server. You control everything. See [Self-Hosting](/getting-started/self-hosting/).
+If you self-host solyto, your data never leaves your server. You control everything. See [Self-Hosting](/self-hosting/overview/).
 
 ## Open source
 
