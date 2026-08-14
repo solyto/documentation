@@ -11,20 +11,15 @@ to `main`.
 - `npm run build` passes (64 pages); internal links resolve; sidebar ↔ content in sync.
 - `verdict.md` written (APPROVED, no security findings).
 - Job branch `feature/worst_full_documentation-for-all-of-solyto` merged into `main`.
+- `main` pushed to `origin` and in sync; job branch deleted and its worktree removed.
 - Main-repo working tree committed; `docs.backup/` deleted; `.manigot/`, root `AGENTS.md`,
   and the stray `docs/` helper project gitignored.
 
 ## Immediate next steps (ordered)
 
-1. **Push `main` to the remote** — `git push origin main` (currently only local).
-2. **Clean up the job branch** — after the merge, delete
-   `feature/worst_full_documentation-for-all-of-solyto`:
-   `git branch -d feature/worst_full_documentation-for-all-of-solyto`
-   (use `-D` only if needed). Optionally prune the job worktree:
-   `git worktree remove <path>`.
-3. **Verify `solyto` org workflow** — decide whether the merged branch should go through
-   the normal reviewer/quality gate via `mg` before pushing, or push directly.
-4. **Documentation follow-ups from the job**:
+1. **Verify `solyto` org workflow** — decide whether merged docs changes should go through
+   the normal reviewer/quality gate via `mg` on future jobs, or be pushed directly.
+2. **Documentation follow-ups from the job**:
    - Add a favicon/logo (currently the default Astro favicon).
    - Add video placeholder sections for future video instructions.
    - Consider i18n for the docs site itself (the app is translated; the docs are not).
