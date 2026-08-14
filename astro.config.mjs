@@ -9,6 +9,7 @@ export default defineConfig({
 		starlight({
 			title: 'solyto docs',
 			description: 'Documentation for solyto — the free, private, all-in-one personal management app.',
+			favicon: '/favicon.png',
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/solyto' },
 				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/solyto' },
