@@ -11,9 +11,9 @@ Rate limited to **1 request per 24 hours** per user.
 
 | Method | Path | Description |
 |--------|------|-------------|
-| POST | `/v1/export` | Request a new export |
+| POST | `/v1/export` | Request a new export (`features[]`) |
 | GET | `/v1/export/status` | Check export job status |
-| GET | `/v1/export/{id}/download` | Download the export file |
+| GET | `/v1/export/{id}/download` | Download the export file (410 if expired) |
 
 ## Request Export
 
@@ -21,20 +21,9 @@ Rate limited to **1 request per 24 hours** per user.
 POST /v1/export
 ```
 
-Initiates an asynchronous export job. Returns the export ID and initial status.
+Initiates an asynchronous export job. The request body lists the features to include; see [Exporting Data](/integrations/exporting/) for the full set.
 
-**Response (202):**
-
-```json
-{
-  "success": true,
-  "data": {
-    "id": 1,
-    "status": "pending",
-    "created_at": "2026-05-27T10:00:00Z"
-  }
-}
-```
+**Status values:** `pending`, `in-progress`, `completed`, `failed`.
 
 ## Check Status
 
@@ -42,25 +31,7 @@ Initiates an asynchronous export job. Returns the export ID and initial status.
 GET /v1/export/status
 ```
 
-Returns the current export job status.
-
-**Response (200):**
-
-```json
-{
-  "success": true,
-  "data": {
-    "id": 1,
-    "status": "completed",
-    "created_at": "2026-05-27T10:00:00Z",
-    "completed_at": "2026-05-27T10:00:05Z",
-    "download_url": "/api/v1/export/1/download",
-    "file_size": 2048576
-  }
-}
-```
-
-**Status values:** `pending`, `processing`, `completed`, `failed`.
+Returns the latest export with its status, `expires_at`, and whether it is expired.
 
 ## Download Export
 
@@ -68,12 +39,4 @@ Returns the current export job status.
 GET /v1/export/{id}/download
 ```
 
-Downloads the ZIP file containing all exported data. Only available when status is `completed`.
-
-The ZIP contains JSON exports of:
-- Profile and settings
-- Todos, notes, calendars, contacts
-- Libraries (music, books, movies, etc.)
-- Feeds, finances, time tracking
-- Check-in history
-- Clipboard items
+Downloads the ZIP file containing all exported data. Files expire after **48 hours** — a request for an expired file returns 410.

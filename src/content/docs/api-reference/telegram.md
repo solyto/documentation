@@ -9,10 +9,10 @@ All endpoints require authentication. Base path: `/api/v1/telegram`.
 
 | Method | Path | Description |
 |--------|------|-------------|
-| GET | `/v1/telegram/token-request` | Generate a token for Telegram bot |
-| GET | `/v1/telegram/request` | Check connection status |
-| PUT | `/v1/telegram/your-day-alert` | Configure daily summary alert |
-| PUT | `/v1/telegram/check-in-alert` | Configure check-in reminder |
+| GET | `/v1/telegram/token-request` | Get (or create) a pairing token, valid 24h |
+| GET | `/v1/telegram/request` | Get the current connection state |
+| PUT | `/v1/telegram/your-day-alert` | Toggle the daily "your day" alert |
+| PUT | `/v1/telegram/check-in-alert` | Toggle the check-in alert |
 
 ## Generate Token
 
@@ -20,19 +20,7 @@ All endpoints require authentication. Base path: `/api/v1/telegram`.
 GET /v1/telegram/token-request
 ```
 
-Returns a one-time token to link your Telegram account. Send this token to the solyto Telegram bot to complete pairing.
-
-**Response (200):**
-
-```json
-{
-  "success": true,
-  "data": {
-    "token": "abc123xyz",
-    "expires_at": "2026-05-27T11:00:00Z"
-  }
-}
-```
+Returns a pairing token. Send it to the solyto Telegram bot as `/connect <token>` to link your account.
 
 ## Check Connection
 
@@ -40,20 +28,7 @@ Returns a one-time token to link your Telegram account. Send this token to the s
 GET /v1/telegram/request
 ```
 
-Returns the current Telegram connection status.
-
-**Response (200):**
-
-```json
-{
-  "success": true,
-  "data": {
-    "connected": true,
-    "telegram_username": "johndoe",
-    "connected_at": "2026-05-20T08:00:00Z"
-  }
-}
-```
+Returns the current Telegram connection state, including whether the bot connection is confirmed and the linked chat ID.
 
 ## Your Day Alert
 
@@ -61,13 +36,7 @@ Returns the current Telegram connection status.
 PUT /v1/telegram/your-day-alert
 ```
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `enabled` | boolean | Enable or disable the alert |
-| `time` | string | Delivery time (HH:mm format) |
-| `timezone` | string | Timezone for scheduling |
-
-Sends a daily summary of todos, calendar events, and notes to your Telegram.
+Toggles the daily "your day" alert, delivered at 07:00 in your timezone.
 
 ## Check-In Alert
 
@@ -75,10 +44,6 @@ Sends a daily summary of todos, calendar events, and notes to your Telegram.
 PUT /v1/telegram/check-in-alert
 ```
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `enabled` | boolean | Enable or disable the reminder |
-| `time` | string | Reminder time (HH:mm format) |
-| `timezone` | string | Timezone for scheduling |
+Toggles the daily check-in reminder, delivered at 20:00 in your timezone.
 
-Sends a daily reminder to complete your check-in entry.
+See [Telegram Bot](/integrations/telegram/) for details on the bot and its commands.

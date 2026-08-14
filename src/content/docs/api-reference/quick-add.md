@@ -18,28 +18,25 @@ All endpoints require authentication. Base path: `/api/v1/dashboard/quick-add`.
 POST /v1/dashboard/quick-add/detect
 ```
 
-Analyzes a URL or text string and returns the detected content type with confidence score.
+Analyzes a URL or text string and returns the detected content type, confidence score, and whether confirmation is needed.
 
 **Request Body:**
 
 | Field | Type | Rules |
 |-------|------|-------|
-| `input` | string | Required. URL or text to analyze |
+| `content` | string | Required. URL or text to analyze |
 
-**Response (200):**
+**Response:**
 
 ```json
 {
   "success": true,
   "data": {
-    "type": "link",
+    "content": "https://www.deezer.com/album/123456",
+    "content_type": "music",
     "confidence": 0.95,
-    "preview": {
-      "title": "Example Page",
-      "description": "A short description",
-      "url": "https://example.com",
-      "image": "https://example.com/og.png"
-    }
+    "needs_confirmation": false,
+    "metadata": { }
   }
 }
 ```
@@ -48,16 +45,20 @@ Analyzes a URL or text string and returns the detected content type with confide
 
 | Type | Description |
 |------|-------------|
-| `link` | A URL to save to links library |
-| `todo` | Actionable task text |
-| `note` | General text content |
-| `contact` | Contact information (vCard/email/phone) |
-| `feed` | RSS/Atom feed URL |
-| `calendar` | ICS calendar URL |
-| `movie` | Movie reference |
-| `book` | Book reference |
-| `music` | Music reference |
-| `recipe` | Recipe content |
+| `music` | Deezer/Discogs URL |
+| `books` | Hardcover/Goodreads URL |
+| `movies` | IMDb URL |
+| `games` | Steam/BGG URL |
+| `recipes` | Chefkoch URL |
+| `links` | Any other URL |
+| `todo` | Text containing `due`, `repeat`, or `link:` |
+| `note` | Plain text with no signals |
+| `plants` | Plant entry (manual selection) |
+| `quotes` | Quote entry (manual selection) |
+| `feed` | Feed subscription (manual selection) |
+| `clipboard` | Clipboard text (manual selection) |
+
+See [Quick Add](/dashboard/quick-add/) for the detection rules. `needs_confirmation` is true when confidence is below 60%.
 
 ## Commit
 
@@ -65,24 +66,12 @@ Analyzes a URL or text string and returns the detected content type with confide
 POST /v1/dashboard/quick-add/commit
 ```
 
-Saves the detected item to the appropriate library. Use the data returned from `/detect`.
+Saves the item to the appropriate library.
 
 **Request Body:**
 
 | Field | Type | Rules |
 |-------|------|-------|
-| `type` | string | Required. Content type from detect |
-| `data` | object | Required. Item fields for the target library |
-
-**Response (201):**
-
-```json
-{
-  "success": true,
-  "message": "Item added successfully",
-  "data": {
-    "type": "link",
-    "id": 42
-  }
-}
-```
+| `content` | string | Required. The original URL or text |
+| `content_type` | string | Required. One of the types above |
+| `metadata` | object | Optional. Extra fields for the target library |

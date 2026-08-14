@@ -1,6 +1,6 @@
 ---
 title: Time Tracking API
-description: Projects, time entries, and statistics.
+description: Projects, categories, time entries, and statistics.
 ---
 
 All endpoints require authentication. Base path: `/api/v1/time-tracking`.
@@ -10,91 +10,40 @@ All endpoints require authentication. Base path: `/api/v1/time-tracking`.
 | Method | Path | Description |
 |--------|------|-------------|
 | GET | `/v1/time-tracking/categories` | List categories |
-| POST | `/v1/time-tracking/categories` | Create a category |
-| PUT | `/v1/time-tracking/categories/{id}` | Update a category |
-| DELETE | `/v1/time-tracking/categories/{id}` | Delete a category |
+| POST | `/v1/time-tracking/categories` | Create a category (`title`, `color`) |
+| GET | `/v1/time-tracking/categories/{category}` | Get a category |
+| PUT | `/v1/time-tracking/categories/{category}` | Update a category |
+| DELETE | `/v1/time-tracking/categories/{category}` | Delete a category |
 
 ## Projects
 
 | Method | Path | Description |
 |--------|------|-------------|
 | GET | `/v1/time-tracking/projects` | List projects |
-| POST | `/v1/time-tracking/projects` | Create a project |
-| GET | `/v1/time-tracking/projects/{id}` | Get a project |
-| PUT | `/v1/time-tracking/projects/{id}` | Update a project |
-| DELETE | `/v1/time-tracking/projects/{id}` | Delete a project |
+| POST | `/v1/time-tracking/projects` | Create a project (`title`, `description`, `category_ids[]`) |
+| GET | `/v1/time-tracking/projects/{project}` | Get a project |
+| PUT | `/v1/time-tracking/projects/{project}` | Update a project |
+| DELETE | `/v1/time-tracking/projects/{project}` | Delete a project (removes its entries) |
 
 ## Time Entries
 
 | Method | Path | Description |
 |--------|------|-------------|
 | GET | `/v1/time-tracking/entries` | List time entries |
-| POST | `/v1/time-tracking/entries` | Create a time entry |
-| GET | `/v1/time-tracking/entries/{id}` | Get an entry |
-| PUT | `/v1/time-tracking/entries/{id}` | Update an entry |
-| DELETE | `/v1/time-tracking/entries/{id}` | Delete an entry |
+| POST | `/v1/time-tracking/entries` | Create a manual entry (`started_at`, `stopped_at`, `duration_minutes`, `project_id`, `description`) |
+| GET | `/v1/time-tracking/entries/{entry}` | Get an entry |
+| PUT | `/v1/time-tracking/entries/{entry}` | Update an entry |
+| DELETE | `/v1/time-tracking/entries/{entry}` | Delete an entry |
 
 ## Timer
 
 | Method | Path | Description |
 |--------|------|-------------|
-| POST | `/v1/time-tracking/start` | Start a timer |
-| POST | `/v1/time-tracking/stop` | Stop the active timer |
+| POST | `/v1/time-tracking/entries/start` | Start a timer (409 if one is already running) |
+| POST | `/v1/time-tracking/entries/{entry}/stop` | Stop the running timer (409 if already stopped) |
 
 ## Statistics
 
 | Method | Path | Description |
 |--------|------|-------------|
-| GET | `/v1/time-tracking/statistics` | Get time tracking stats |
-
-## Category Fields
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | string | Required |
-| `color` | string | Optional hex color |
-
-## Project Fields
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | string | Required |
-| `description` | text | Optional |
-| `category_id` | integer | Optional. Link to category |
-| `color` | string | Optional hex color |
-| `billable_rate` | numeric | Optional hourly rate |
-
-## Entry Fields
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `project_id` | integer | Required |
-| `description` | string | Optional |
-| `start` | datetime | Required. ISO 8601 |
-| `end` | datetime | Optional. ISO 8601 |
-| `billable` | boolean | Optional |
-
-## Start Timer
-
-```
-POST /v1/time-tracking/start
-```
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `project_id` | integer | Required |
-| `description` | string | Optional |
-
-Only one timer can be active at a time.
-
-## Statistics
-
-```
-GET /v1/time-tracking/statistics
-```
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `from` | date | Start of period |
-| `to` | date | End of period |
-| `project_id` | integer | Filter by project |
+| GET | `/v1/time-tracking/entries/statistics` | Get statistics between `from`/`to` dates |

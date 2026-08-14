@@ -1,6 +1,6 @@
 ---
 title: Calendars API
-description: Calendar and event management with sharing and import.
+description: Calendar and event management with sharing, attachments, and CalDAV import.
 ---
 
 All endpoints require authentication. Base path: `/api/v1/calendars`.
@@ -9,77 +9,53 @@ All endpoints require authentication. Base path: `/api/v1/calendars`.
 
 | Method | Path | Description |
 |--------|------|-------------|
-| GET | `/v1/calendars` | List all calendars |
-| POST | `/v1/calendars` | Create a calendar |
-| GET | `/v1/calendars/{id}` | Get a calendar |
-| PUT | `/v1/calendars/{id}` | Update a calendar |
-| DELETE | `/v1/calendars/{id}` | Delete a calendar |
+| GET | `/v1/calendars` | List all calendars (own, shared, subscribed) |
+| POST | `/v1/calendars` | Create a calendar (`name`; 409 if it already exists) |
+| PUT | `/v1/calendars/{instanceId}` | Update a calendar's color |
+| DELETE | `/v1/calendars/{instanceId}` | Delete a calendar |
+| DELETE | `/v1/calendars/{instanceId}/unsubscribe` | Unsubscribe from a shared calendar |
+| PUT | `/v1/calendars/order` | Reorder calendars (`order[]`) |
 
 ## Events
 
 | Method | Path | Description |
 |--------|------|-------------|
-| GET | `/v1/calendars/{id}/events` | List events for a calendar |
-| POST | `/v1/calendars/{id}/events` | Create an event |
-| GET | `/v1/calendars/events/{id}` | Get a single event |
-| PUT | `/v1/calendars/events/{id}` | Update an event |
-| DELETE | `/v1/calendars/events/{id}` | Delete an event |
+| GET | `/v1/calendars/events/widget` | Upcoming events for the dashboard widget |
+| GET | `/v1/calendars/events/{yearMonth}` | Events for a month (`YYYY-MM`) |
+| POST | `/v1/calendars/{instanceId}/events` | Create an event |
+| PUT | `/v1/calendars/{instanceId}/events/{eventUri}` | Update or move an event (`etag` for conflict handling) |
+| DELETE | `/v1/calendars/{instanceId}/events/{eventUri}` | Delete an event |
+| PUT | `/v1/calendars/{instanceId}/events/{eventUri}/occurrence/{occurrenceDate}` | Update a single recurring occurrence |
+| DELETE | `/v1/calendars/{instanceId}/events/{eventUri}/occurrence/{occurrenceDate}` | Delete a single occurrence |
+
+Event creation accepts: `title`, `start_date`, `end_date`, `description`, `location`, `is_all_day`, `is_recurring`, `recurrence_rule`, `recurrence_end`.
+
+## Event attachments
+
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/v1/calendars/events/{eventId}/attachments/todos` | Todos attached to an event |
+| POST | `/v1/calendars/events/{eventId}/attachments/todos` | Attach a todo (`todo_id`) |
+| DELETE | `/v1/calendars/events/{eventId}/attachments/todos/{todoId}` | Detach a todo |
+| GET | `/v1/calendars/events/{eventId}/attachments/notes` | Notes attached to an event |
+| POST | `/v1/calendars/events/{eventId}/attachments/notes` | Attach a note (`note_id`) |
+| DELETE | `/v1/calendars/events/{eventId}/attachments/notes/{noteId}` | Detach a note |
 
 ## Sharing & Invites
 
 | Method | Path | Description |
 |--------|------|-------------|
-| POST | `/v1/calendars/{id}/share` | Share calendar with a user |
-| GET | `/v1/calendars/invites` | List pending invites |
-| PUT | `/v1/calendars/invites/{id}/accept` | Accept an invite |
-| PUT | `/v1/calendars/invites/{id}/reject` | Reject an invite |
+| GET | `/v1/calendars/{instanceId}/share` | List sharees (owner only) |
+| POST | `/v1/calendars/{instanceId}/share` | Share with a friend (`friend_id`) |
+| DELETE | `/v1/calendars/{instanceId}/share/{userId}` | Revoke share access |
+| GET | `/v1/calendars/invites` | List pending share invites |
+| PUT | `/v1/calendars/invites/{token}/accept` | Accept an invite |
+| PUT | `/v1/calendars/invites/{token}/decline` | Decline an invite |
 
-## Import
+## Import (CalDAV)
 
 | Method | Path | Description |
 |--------|------|-------------|
-| POST | `/v1/calendars/import` | Import from ICS file |
-
-## Calendar Fields
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | string | Required. Calendar name |
-| `color` | string | Hex color |
-| `description` | string | Optional description |
-| `timezone` | string | Timezone identifier |
-
-## Event Fields
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `title` | string | Required. Event title |
-| `description` | string | Optional. Event details |
-| `start` | datetime | Required. Start time (ISO 8601) |
-| `end` | datetime | Required. End time (ISO 8601) |
-| `all_day` | boolean | Is an all-day event |
-| `location` | string | Optional. Event location |
-| `recurrence` | string | Optional. RRULE recurrence rule |
-
-## Share
-
-```
-POST /v1/calendars/{id}/share
-```
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `user_id` | integer | User to share with |
-| `permission` | string | `view` or `edit` |
-
-## Import ICS
-
-```
-POST /v1/calendars/import
-Content-Type: multipart/form-data
-```
-
-| Field | Type | Rules |
-|-------|------|-------|
-| `file` | file | Required. ICS file |
-| `calendar_id` | integer | Optional. Target calendar |
+| POST | `/v1/calendars/import` | Start an external CalDAV import (`url`, `username`, `secret`) |
+| POST | `/v1/calendars/import/select` | Select calendars to import |
+| GET | `/v1/calendars/import/state` | Import progress state |

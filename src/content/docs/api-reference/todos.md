@@ -9,62 +9,41 @@ All endpoints require authentication. Base path: `/api/v1/todos`.
 
 | Method | Path | Description |
 |--------|------|-------------|
-| GET | `/v1/todos` | List all todos (filterable) |
+| GET | `/v1/todos` | List all todos |
 | POST | `/v1/todos` | Create a todo |
-| GET | `/v1/todos/{id}` | Get a single todo |
-| PUT | `/v1/todos/{id}` | Update a todo |
-| DELETE | `/v1/todos/{id}` | Delete a todo |
-| PUT | `/v1/todos/{id}/toggle` | Toggle completion status |
-| PUT | `/v1/todos/reorder` | Reorder todos |
+| GET | `/v1/todos/{todo}` | Get a single todo |
+| PUT | `/v1/todos/{todo}` | Update a todo (incl. `is_completed`, `link`) |
+| DELETE | `/v1/todos/{todo}` | Delete a todo |
+| GET | `/v1/todos/due-date` | Todos grouped by due date |
+
+Todo creation and updates accept: `title`, `description`, `link`, `priority` (low/medium/high), `status` (backlog/pending/in-progress/waiting/almost-done), `effort`, `progress` (0–100), `due_at`, `category_id`, `tags[]`. Natural-language parsing in the `title` (`#tag`, `/category`, `due:`, `repeat:`, `link:`) is applied when creating.
 
 ## Categories
 
 | Method | Path | Description |
 |--------|------|-------------|
 | GET | `/v1/todos/categories` | List categories |
-| POST | `/v1/todos/categories` | Create a category |
-| PUT | `/v1/todos/categories/{id}` | Update a category |
-| DELETE | `/v1/todos/categories/{id}` | Delete a category |
+| POST | `/v1/todos/categories` | Create a category (`title`, max 50) |
+| GET | `/v1/todos/categories/{category}` | Get a category |
+| PUT | `/v1/todos/categories/{category}` | Update a category |
+| DELETE | `/v1/todos/categories/{category}` | Delete a category |
 
 ## Workspaces
 
 | Method | Path | Description |
 |--------|------|-------------|
 | GET | `/v1/todos/workspaces` | List workspaces |
-| POST | `/v1/todos/workspaces` | Create a workspace |
-| PUT | `/v1/todos/workspaces/{id}` | Update a workspace |
-| DELETE | `/v1/todos/workspaces/{id}` | Delete a workspace |
+| POST | `/v1/todos/workspaces` | Create a workspace (`title`, `categories[]`) |
+| GET | `/v1/todos/workspaces/{workspace}` | Get a workspace |
+| PUT | `/v1/todos/workspaces/{workspace}` | Update a workspace (incl. `is_hideable`) |
+| DELETE | `/v1/todos/workspaces/{workspace}` | Delete a workspace |
+| POST | `/v1/todos/workspaces/{workspace}/categories/attach` | Attach categories |
+| POST | `/v1/todos/workspaces/{workspace}/categories/detach` | Detach categories |
 
 ## Subtasks
 
 | Method | Path | Description |
 |--------|------|-------------|
-| POST | `/v1/todos/{todo}/subtasks` | Add a subtask |
-| PUT | `/v1/todos/{todo}/subtasks/{id}` | Update a subtask |
-| DELETE | `/v1/todos/{todo}/subtasks/{id}` | Delete a subtask |
-
-## Todo Fields
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `title` | string | Required. Todo title |
-| `description` | string | Optional. Details |
-| `due_date` | date | Optional. Due date |
-| `priority` | string | Optional. low/medium/high |
-| `category_id` | integer | Optional. Link to category |
-| `workspace_id` | integer | Optional. Link to workspace |
-| `completed` | boolean | Completion status |
-
-## List Filters
-
-The `GET /v1/todos` endpoint accepts query parameters:
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `completed` | boolean | Filter by completion |
-| `category_id` | integer | Filter by category |
-| `workspace_id` | integer | Filter by workspace |
-| `priority` | string | Filter by priority |
-| `due_before` | date | Due before date |
-| `due_after` | date | Due after date |
-| `search` | string | Search in title/description |
+| POST | `/v1/todos/{todo}/subtasks` | Add a subtask (`title`) |
+| PUT | `/v1/todos/{todo}/subtasks/{subtask}` | Update a subtask (`title`, `is_completed`) |
+| DELETE | `/v1/todos/{todo}/subtasks/{subtask}` | Delete a subtask |

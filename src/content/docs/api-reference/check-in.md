@@ -9,9 +9,8 @@ All endpoints require authentication. Base path: `/api/v1/check-in`.
 
 | Method | Path | Description |
 |--------|------|-------------|
-| GET | `/v1/check-in` | Get check-in entries |
-| POST | `/v1/check-in` | Create a check-in entry |
-| PUT | `/v1/check-in/{date}` | Update a check-in by date |
+| GET | `/v1/check-in` | List check-in entries |
+| POST | `/v1/check-in` | Create or upsert a check-in for a date (unique per user/date) |
 
 ## Get Check-Ins
 
@@ -19,15 +18,9 @@ All endpoints require authentication. Base path: `/api/v1/check-in`.
 GET /v1/check-in
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `from` | date | Start of date range |
-| `to` | date | End of date range |
-| `per_page` | integer | Items per page |
+Returns the user's check-in entries.
 
-Returns a paginated list of check-in entries sorted by date descending.
-
-## Create Check-In
+## Create / Update Check-In
 
 ```
 POST /v1/check-in
@@ -36,27 +29,21 @@ POST /v1/check-in
 | Field | Type | Description |
 |-------|------|-------------|
 | `date` | date | Required. Date for this entry |
-| `mood` | integer | Required. 1-5 scale |
-| `notes` | text | Optional. How the day went |
-| `health` | string | Optional. Health status |
-| `energy` | integer | Optional. 1-5 energy level |
-| `sleep_hours` | numeric | Optional. Hours of sleep |
-| `stress` | integer | Optional. 1-5 stress level |
+| `mood` | integer | Optional. 1–5 |
+| `sleep` | integer | Optional. 1–5 |
+| `dreams` | integer | Optional. 1–5 |
+| `food_quality` | integer | Optional. 1–5 |
+| `food_amount` | integer | Optional. 1–5 |
+| `water` | integer | Optional. 1–5 |
+| `sports` | integer | Optional. Sport value |
+| `work` | integer | Optional. 1–5 |
+| `menstruation` | integer | Optional. 1–5 |
+| `alcohol` | integer | Optional. 1–5 |
+| `smoking` | integer | Optional. 1–5 |
+| `social_life` | integer | Optional. 1–5 |
 
-## Update Check-In
+All tracker fields are nullable and optional; a `date` is unique per user, so posting the same date again updates the existing entry.
 
-```
-PUT /v1/check-in/{date}
-```
+## Settings
 
-Accepts the same fields as create. Use the date (YYYY-MM-DD) as the identifier to update an existing entry for that day.
-
-## Mood Scale
-
-| Value | Label |
-|-------|-------|
-| 1 | Very Bad |
-| 2 | Bad |
-| 3 | Okay |
-| 4 | Good |
-| 5 | Great |
+Check-in settings (enabled trackers, selected sports) are managed via the user settings endpoints — see [Users & Settings](/api-reference/users/).
