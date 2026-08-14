@@ -38,11 +38,3 @@ Most browsers show an install prompt automatically when you visit solyto. Look f
 ## Standalone mode
 
 When installed, solyto runs in standalone mode — no browser address bar, no tabs, no browser UI. It looks and feels like a native app.
-
-## Offline support
-
-solyto registers a service worker that caches the app shell. Pages you've visited are available offline. Data changes require a connection to sync back to the server.
-
-## Updating
-
-PWA updates are fetched automatically when you open the app. If an update is available, it's applied on the next launch. No manual action needed.
