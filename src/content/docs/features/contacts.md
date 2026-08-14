@@ -17,27 +17,27 @@ Open an address book and click the **+** button to create a new contact. Fill in
 
 ### Contact fields
 
-- **First name** and **Last name**
-- **Middle name**
-- **Email address**
-- **Phone number**
-- **Organization** — company or affiliation
-- **Note** — free-text notes about the contact
-- **Address** — street address, city, postal code, and country
+- **Name** — prefix, first, middle, last name, and suffix
+- **Phone numbers** — one or more, each with a type (cell, home, work, other)
+- **Email addresses** — one or more, each with a type (home, work, other)
 - **Groups** — assign to one or more groups for organization
-- **Photo** — upload an image for the contact
+- **Organization** — company or affiliation
+- **Title** — job title
+- **Note** — free-text notes about the contact
+- **Address** — street address, city, state, postal code, and country
+- **Photo** — upload an image for the contact (scaled to fit)
 
 All fields except the name are optional. Contacts can belong to multiple groups within an address book.
 
 ### Contact detail view
 
-Click a contact to open its detail view, where you can see all fields, edit information, manage groups, and upload or change the contact photo.
+Click a contact to open its detail view with an initials avatar, tap-to-call (`tel:`) and tap-to-email (`mailto:`) links, address book and group chips, address, organization, note, and photo. Edit or delete the contact from this view.
 
 ## Contact photos
 
 Upload a photo for any contact:
 
-- **Upload** — select an image file from your device
+- **Upload** — select an image file from your device (automatically resized)
 - **View** — the photo appears in the contact list and detail view
 - **Delete** — remove the photo at any time
 
@@ -65,13 +65,12 @@ Changes made in solyto are pushed to the external server, and vice versa.
 
 ### Import process
 
-Importing from a CardDAV server is a multi-stage process:
+Importing from an external CardDAV server is a multi-stage process:
 
-1. **Started** — you enter your CardDAV server URL and credentials
+1. **Start** — enter your external server's URL, username, and password
 2. **Select** — choose which address books to import from the server
-3. **Creating** — solyto creates local address book mappings
-4. **Importing** — contacts are fetched and stored locally
-5. **Finished** — sync is active and ongoing
+3. **Importing** — contacts are fetched and stored locally, with live progress
+4. **Finished** — your contacts are available in solyto
 
 See [DAV Sync](/integrations/dav-sync/) for detailed setup instructions.
 
