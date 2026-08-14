@@ -22,31 +22,40 @@ solyto includes eight libraries:
 
 ## Common features
 
-Every library shares the same core features:
+Every library shares the same core capabilities (where they make sense for that content type):
 
-### Tags
+### Search and filters
 
-Add colored tags to any entry. Tags are shared across features, so a tag you create in one library works the same way everywhere. Use tags to filter, group, and organize your collections your way.
+- **Search** — search across the library's key fields (e.g. title and artist for music, title and ingredients for recipes). Press **Ctrl+F** to focus the search bar.
+- **Filters** — filter by **genre**, **rating**, **wishlist**, and library-specific filters, with a clear-all button.
 
-### Search
+### Genres
 
-Full-text search across all entries in each library. Start typing and results appear instantly.
+Each library has its own genre system. You can customize genres — add, rename, and remove them — to match how you think about your collection. Assign one or more genres to any entry.
 
-### Ratings
+### Ratings and wishlist
 
-Rate any entry on a 1–5 scale. Use ratings to surface your favorites or sort your collection by how much you enjoyed something.
+- **Ratings** — rate any entry on a 1–5 scale
+- **Wishlist** — flag entries you want, and filter for them
 
-### Status
+### Views
 
-Mark entries with a status — owned, wishlist, sold, completed, dropped, and more depending on the library type. Status helps you keep track of where things stand.
+Most libraries offer a view switcher: **List** and **Cards**. The **Music** and **Book** libraries add two 3D views:
 
-### Notes
+- **Shelf** — a wooden bookshelf with covers on display
+- **Spine** — covers arranged like book/record spines, with a hover-out 3D flip; book spine width is derived from page count
 
-Add free-text notes to any entry. Jot down thoughts, reminders, or anything else you want to remember.
+### External links
+
+Where an entry came from an external service, a "Search on / Show on" shortcut links back to that provider.
 
 ### Cover images
 
-Each library supports cover images — album art, book covers, movie posters, plant photos, and so on. Upload your own or let solyto fetch them automatically.
+Each library supports cover images — album art, book covers, movie posters, plant photos, and so on. Upload your own or let solyto fetch them automatically from the import service.
+
+### Tags
+
+Add colored tags to any entry. Tags are shared across features, so a tag you create in one library works the same way everywhere.
 
 ### Export as CSV
 
@@ -54,9 +63,14 @@ Download your data at any time as a `.csv` file. Your data stays yours. See [Exp
 
 ## AI Recommendations
 
-The **Music** and **Book** libraries offer AI-powered recommendations. When you request them, solyto uses an OpenAI-compatible API to suggest albums or books based on what's already in your library.
+The **Music** and **Book** libraries offer recommendations powered by an OpenAI-compatible API. When you request one, pick from:
 
-Recommendations are generated on-demand only — no data is sent permanently, and nothing happens until you click the button. See [Music Library](/features/libraries/music/) and [Book Library](/features/libraries/books/) for details.
+- **A favorite** — something similar to what you already love
+- **Something I haven't seen before**
+- **Just something random**
+- **Something new**
+
+solyto then picks an entry from your library (for "new", it fetches a fresh release via Deezer/Hardcover). Use "Try again" to reroll. Recommendations are generated on-demand only — nothing happens until you click the button. See [Music Library](/features/libraries/music/) and [Book Library](/features/libraries/books/) for details.
 
 ## Release notifications
 
@@ -70,8 +84,5 @@ Notifications are configurable per channel (Telegram, email, push). See [Notific
 
 ## Import from external services
 
-You can import data from external services like Deezer, Discogs, Goodreads, Hardcover, Steam, BoardGameGeek, IMDb, and Chefkoch. Imports only happen when you explicitly trigger them — solyto never pulls data from third-party services in the background. See [Importing Data](/integrations/importing/) for details.
+You can search online and import from external services like Deezer, Discogs, Goodreads, Hardcover, IMDb, TMDB, Steam, BoardGameGeek, and Chefkoch. Imports only happen when you explicitly trigger them — solyto never pulls data from third-party services in the background. See [Importing Data](/integrations/importing/) for details.
 
-## Genres
-
-Each library has its own genre system. You can customize genres — add, rename, and remove them — to match how you think about your collection. Assign one or more genres to any entry.
