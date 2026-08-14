@@ -3,15 +3,15 @@ title: Exporting Data
 description: Export all your solyto data in standard formats.
 ---
 
-solyto lets you export your data at any time from **Settings → Export**. You own your data and can download it whenever you want.
+solyto lets you export your data at any time from **Settings → Export Data**. You own your data and can download it whenever you want.
 
 ## How to export
 
-1. Go to **Settings → Export**
+1. Go to **Settings → Export Data**
 2. Select individual features or click **Select All**
 3. Click **Export**
 4. solyto runs the export job in the background
-5. When it's done, you'll see a download link in **Settings → Export** and in your notifications
+5. When it's done, you'll see a download link in **Settings → Export Data** and in your notifications
 
 ## How exports work
 
@@ -34,22 +34,14 @@ Each feature exports in a standard format you can open in other apps:
 | Link Library | `.html` (Netscape Bookmarks) | Chrome, Firefox, Safari, any browser |
 | Todos | `.csv` | Excel, Google Sheets |
 | Music Library | `.csv` | Excel, Google Sheets |
-| Book Library | `.csv` (Goodreads format) | Goodreads, StoryGraph |
+| Book Library | `.csv` (Goodreads-compatible columns) | Goodreads, spreadsheet apps |
+| Game Library | `.csv` | Excel, Google Sheets |
 | Recipe Library | `.csv` | Excel, Google Sheets |
 | Quote Library | `.csv` | Excel, Google Sheets |
-| Game Library | `.csv` | Excel, Google Sheets |
 | Check In | `.csv` | Excel, Google Sheets |
-| Finances (Income) | `.csv` | Excel, Google Sheets |
-| Finances (Wealth) | `.csv` | Excel, Google Sheets |
 | Time Tracking | `.csv` | Excel, Google Sheets |
-
-## Selective export
-
-You don't have to export everything. Check only the features you need and the ZIP will contain just those files. This is useful if you want to:
-
-- Back up a single library
-- Import your calendar into another app
-- Archive your notes separately
+| Finances (Budget) | `.csv` | Excel, Google Sheets |
+| Finances (Wealth) | `.csv` | Excel, Google Sheets |
 
 ## Selective export
 
@@ -59,6 +51,8 @@ You don't have to export everything. Check only the features you need and the ZI
 - Import your calendar into another app like Google Calendar
 - Archive your notes to use in Obsidian or another markdown editor
 - Share your recipes with someone
+
+Note: the Movie, Plant, and Clipboard features are not currently part of the exportable set.
 
 ## Export details
 
