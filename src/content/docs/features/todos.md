@@ -27,14 +27,18 @@ Click the **+** button to open the todo form. Fill in the fields you need — ti
 Type directly into the input field using a short command syntax:
 
 ```
-Buy groceries #shopping !2 due:tomorrow
+Buy groceries #shopping /errands due:tomorrow repeat:weekly link:https://shop.example.com
 ```
 
 | Syntax | Meaning |
 |--------|---------|
-| `#tag` | Assign a tag |
-| `!1` / `!2` / `!3` | Priority (1 = high, 2 = medium, 3 = low) |
-| `due:tomorrow` | Due date — also accepts `today`, weekday names (`monday`), or a full date (`2026-06-01`) |
+| `#tag` | Assign a tag (created automatically if it doesn't exist yet) |
+| `/category` | Assign a category (created automatically if it doesn't exist yet) |
+| `due:tomorrow` | Due date — also accepts `today`, or a full date (`2026-06-01`, `01.06.2026`) |
+| `repeat:daily` / `repeat:weekly` / `repeat:monthly` / `repeat:yearly` | Repeat on a schedule — requires a due date |
+| `link:https://...` | Attach a URL to the todo |
+
+The input offers autocomplete suggestions for tags (`#`), categories (`/`), due dates (`due:`), and recurrence (`repeat:`). If you use `repeat:` without `due:`, solyto warns you that recurrence needs a due date.
 
 ### Quick Add
 
@@ -91,7 +95,11 @@ Workspaces let you group categories together. This is useful for separating diff
 
 ### Hide It
 
-Each workspace has a **Hide It** toggle. When enabled, todos assigned to that workspace's categories are hidden from the main Todos view. This lets you focus on one workspace at a time without deleting or archiving tasks from other areas.
+Each workspace has a **Hide It** toggle. When enabled, todos assigned to that workspace's categories are hidden from the main Todos view. This lets you focus on one workspace at a time without deleting or archiving tasks from other areas. Your Hide It preference is remembered on the device.
+
+## Auto-generated todos
+
+solyto can create todos automatically (for example via recurring schedules or other features). Auto-generated todos are kept out of your way: they only appear in the main view if they are due within the next 3 days.
 
 ## Categories
 
@@ -122,14 +130,14 @@ The score is calculated from:
 
 | Factor | Points |
 |--------|--------|
-| Priority | 0–100 (based on low/medium/high) |
-| Effort penalty | +0 to +50 (higher effort = higher score) |
+| Priority base | High +100, Medium +50, Low +0 |
+| Effort bonus | Low +50, Medium +25, High +0 |
 | Overdue | +100 |
 | Due today | +50 |
 | Due tomorrow | +25 |
-| Age > 30 days | +50 |
+| Older than 30 days | +50 |
 
-Higher scores appear first when sorting by Smart Score, so overdue high-priority tasks with high effort float to the top.
+The total is normalized to a 0–1 relevance score. Higher scores appear first when sorting by Smart Score, so overdue high-priority tasks float to the top.
 
 ## Filtering
 
