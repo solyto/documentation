@@ -26,14 +26,16 @@ Each recipe entry includes:
 |-------|-------------|
 | **title** | Recipe name |
 | **rating** | 1–5 stars |
+| **type** | Meal type (breakfast, lunch, dinner, snack, dessert, drink, other) |
 | **time_to_make** | Total time to prepare and cook |
-| **description** | Instructions or method |
-| **ingredients** | List of ingredients |
-| **type** | Meal type (breakfast, lunch, dinner, snack, dessert, drink) |
-| **cover_image** | Photo of the finished dish |
+| **calories** | Calorie count |
+| **servings** | How many servings the recipe makes |
+| **kcal per serving** | Computed automatically from calories and servings |
+| **ingredients** | Structured list — each ingredient has a name, amount, and unit |
+| **steps** | Ordered list of preparation steps |
+| **description** | Short description or method notes |
+| **cover** | Photo of the finished dish |
 | **link** | URL to the original recipe |
-| **tags** | Colored tags for filtering |
-| **notes** | Free-text notes (tips, modifications, etc.) |
 
 ## Recipe types
 
@@ -45,21 +47,12 @@ Categorize recipes by meal type:
 - **Snack** — small bites and appetizers
 - **Dessert** — sweets and baked goods
 - **Drink** — beverages, smoothies, cocktails
+- **Other**
 
-Filter by type to find the right recipe for the right time of day.
+## Views and filters
 
-## Views and sorting
-
-Browse your recipes and sort by:
-
-- Title (A–Z)
-- Rating
-- Time to make
-- Meal type
-- Date added
-
-Filter by type, tags, or rating to find what you're looking for.
+Browse your recipes in **List** or **Cards** views. Search matches the recipe **title or ingredient names** (press **Ctrl+F**), and you can filter by type or rating.
 
 ## Exporting
 
-Export your entire recipe library as `.csv`. The file includes all fields — title, ingredients, time, rating, tags, and notes. See [Exporting Data](/integrations/exporting/).
+Export your entire recipe library as `.csv`. The file includes all fields — title, ingredients, steps, time, and rating. See [Exporting Data](/integrations/exporting/).
