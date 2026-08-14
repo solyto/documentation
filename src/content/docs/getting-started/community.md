@@ -30,7 +30,7 @@ Contributions are welcome — whether it's code, documentation, translations, or
 
 ## Discord
 
-Join the [solyto Discord server](https://discord.gg/solyto) to:
+Join the [solyto Discord server](https://discord.gg/REyWQKgUcq) to:
 
 - Ask questions and get help
 - Share feedback and ideas
