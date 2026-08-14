@@ -9,13 +9,13 @@ The Clipboard feature is a cross-device clipboard relay built into solyto. Copy 
 
 Paste or type text into the Clipboard on one device. It becomes immediately available on all your other devices logged into the same solyto account. Use it for links, code snippets, addresses, notes — anything text-based.
 
-There is no size limit on text entries — paste entire documents if needed. Each text entry is timestamped so you can tell which is which.
+Each text entry is timestamped so you can tell which is which, and has a **copy** button to put it back on your device's clipboard.
 
 ## Image clipboard
 
 Paste or upload images into the Clipboard. Like text, images are accessible from all your devices. This works with screenshots, photos, or any image file. Use it to quickly move a screenshot from your phone to your computer.
 
-Images are stored at full resolution and can be downloaded from any device. Common formats (PNG, JPG, GIF, WebP) are all supported.
+Each image entry shows the image with a **copy** button that puts it back on your device's clipboard as an image (PNG).
 
 ## How it works
 
@@ -43,12 +43,10 @@ You can have multiple clipboard entries at once — they stack as a list rather 
 
 Clipboard content is stored in your solyto account — on solyto.app, or on your own server if self-hosting. It is never processed or read by solyto. Your clipboard data stays private and encrypted in transit.
 
-Entries are auto-deleted after a configurable time period to keep your clipboard clean without manual effort. You control the retention period in Settings.
+## Automatic cleanup
 
-Because clipboard data never leaves your solyto account, it's safe for sensitive content like passwords, tokens, or private messages. Nothing is sent to third-party servers or analyzed for any purpose.
+Clipboard entries are deleted automatically after **24 hours** (a daily cleanup job runs at 02:00), so sensitive content doesn't linger. You can delete entries manually before that if you want them gone sooner.
 
 ## Deleting entries
 
-Remove clipboard entries manually when you no longer need them. Select one or more entries and delete them to free up space and keep your clipboard clean. Combined with auto-deletion, this keeps your clipboard tidy over time.
-
-Deleted entries are removed immediately and cannot be recovered.
+Every entry has a **delete** button. Deleted entries are removed immediately and cannot be recovered.
