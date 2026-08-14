@@ -25,19 +25,15 @@ solyto has 9 notification types:
 
 ### In-app (UI)
 
-Notifications appear in the bell icon in the navigation bar. Click the bell to see your notification history. This channel is always available — no setup required.
-
-### Email
-
-Email notifications are coming soon. When available, you'll be able to configure delivery frequency and which types to receive in **Settings → Notifications → Email**.
+Notifications appear in the bell icon in the navigation bar. Click the bell to see your notification history, mark items read, or mark all as read. This channel is always available — no setup required.
 
 ### Push (Web Push)
 
-Browser push notifications using the Web Push API with VAPID authentication.
+Browser push notifications using the Web Push API with VAPID authentication. Available on web.
 
 To enable push notifications:
 
-1. Go to **Settings → Notifications → Push**
+1. Go to **Settings → Notifications**
 2. Click **Enable Push Notifications**
 3. Your browser will prompt for permission — click **Allow**
 4. Push notifications are now active
@@ -48,62 +44,46 @@ Push notifications work even when solyto is not open in a browser tab, including
 Push notifications require HTTPS and a supported browser (Chrome, Firefox, Edge, Safari 16.4+).
 :::
 
-### Telegram
+### Telegram (Bot)
 
 Send notifications to your Telegram account via the [Telegram Bot](/integrations/telegram/).
 
 To set up Telegram notifications:
 
 1. [Connect the Telegram bot](/integrations/telegram/#connecting-the-bot) to your solyto account
-2. Go to **Settings → Notifications → Telegram**
-3. Enable the notification types you want to receive via Telegram
+2. Go to **Settings → Notifications**
+3. Enable the notification types you want to receive via the **Bot** channel
 
-#### Telegram alerts
+The Telegram channel is only enabled once the bot is connected.
 
-Two special alert types are available for Telegram:
+### Email
 
-**Your Day Alert** — a daily morning summary delivered at a configurable time. Includes:
-
-- Today's calendar events
-- Due and overdue todos
-- Weather forecast
-- Any other relevant items for the day
-
-**Check-in Alert** — a daily reminder to complete your [Daily Check-In](/features/check-in/). Delivered at a time you configure.
-
-Both alerts follow your account language setting (English, German, French, or Spanish).
+Email notifications are coming soon — the email channel is currently unavailable.
 
 ## Configuring notifications
 
 Go to **Settings → Notifications** to:
 
-- Enable or disable each notification type per channel (a full matrix of types × channels)
-- Set delivery times for the Your Day alert and Check-in alert
-- Enable or disable push notifications in your browser
 - Connect or disconnect the Telegram bot
+- Enable or disable push notifications in your browser
+- Toggle each notification type per channel
 
 ### Per-type, per-channel configuration
 
-The notification settings page shows a matrix where each row is a notification type and each column is a channel. Toggle any combination:
+The notification settings page shows a matrix where each row is a notification type and each column is a channel (UI, Email, Push, Bot). Toggle any combination. Channels that aren't set up yet are greyed out — the Bot channel requires a connected Telegram bot, and the Push channel requires push to be enabled.
 
-| | UI | Email | Push | Telegram |
+| Type | UI | Email | Push | Bot |
 |---|:---:|:---:|:---:|:---:|
-| Music release | ✓ | ✓ | ✓ | ✓ |
-| Book release | ✓ | ✓ | ✓ | ✓ |
-| Movie release | ✓ | ✓ | ✓ | ✓ |
-| Friend request | ✓ | ✓ | ✓ | ✓ |
-| Your Day reminder | ✓ | ✓ | ✓ | ✓ |
-| Check-in reminder | ✓ | — | ✓ | ✓ |
-| Calendar share | ✓ | ✓ | ✓ | ✓ |
-| Dev request comment | ✓ | ✓ | ✓ | ✓ |
-| Export ready | ✓ | ✓ | ✓ | ✓ |
+| New Book Releases | ✓ | — | ✓ | ✓ |
+| New Music Releases | ✓ | — | ✓ | ✓ |
+| New Screen Release | ✓ | — | ✓ | ✓ |
+| New Friend Request | ✓ | — | ✓ | ✓ |
+| Reminder for daily check-in | ✓ | — | ✓ | ✓ |
+| Reminder for the upcoming day | ✓ | — | ✓ | ✓ |
+| Calendar Shares | ✓ | — | ✓ | ✓ |
+| Dev Request Comments | ✓ | — | ✓ | ✓ |
+| Export Ready | ✓ | — | ✓ | ✓ |
 
-For example, you might want export notifications only in-app, daily digests via Telegram, and release alerts via push.
+For example, you might want export notifications only in-app, daily reminders via Telegram, and release alerts via push.
 
-## Notification preferences
-
-Some additional preferences:
-
-- **Quiet hours** — suppress notifications during certain hours (coming soon)
-- **Digest content** — choose which sections appear in your daily digest
-- **Sound** — enable or disable notification sounds for in-app notifications
+The two daily reminder types (`daily_day_reminder` and `daily_check_in_reminder`) are sent at 07:00 and 20:00 in your timezone respectively (see [Telegram](/integrations/telegram/) for the alert behavior).
