@@ -53,7 +53,3 @@ solyto checks TMDB for new screen releases and can notify you when something wor
 ## Views and filters
 
 Browse your movie collection in **List** or **Cards** views. Search by title (press **Ctrl+F**), and filter by genre, rating, or wishlist.
-
-## Exporting
-
-Export your entire movie library as `.csv`. The file includes all fields — title, year, rating, genres, and more. See [Exporting Data](/integrations/exporting/).

@@ -3,7 +3,7 @@ title: Link Library
 description: A bookmark manager with categories and Telegram bot integration.
 ---
 
-The Link Library is a personal bookmark manager built into solyto. Save URLs with titles, tags, and notes — then organize them into custom categories. Access your bookmarks from anywhere, and save new ones via the Telegram bot.
+The Link Library is a personal bookmark manager built into solyto. Save URLs with titles, covers, tags, and categories — then organize them into custom categories. Access your bookmarks from anywhere, and save new ones via the Telegram bot or Quick Add.
 
 ## Adding links
 
@@ -23,45 +23,29 @@ Each link entry includes:
 |-------|-------------|
 | **title** | Page title or description |
 | **URL** | The full URL |
+| **cover** | A cover/preview image |
+| **category** | Assigned category |
 | **is_favorite** | Mark as a favorite |
 | **tags** | Colored tags for filtering |
-| **notes** | Free-text notes |
 
 ## Link categories
 
-Organize your links into custom categories. Categories have full CRUD support — create, read, update, and delete them from the library settings. Assign links to categories to keep your bookmarks structured.
+Organize your links into custom categories with colors. The sidebar shows All, Favorites, each category (with counts), and Uncategorized. **Drag and drop** a link onto a category to move it.
 
 Categories are separate from tags. Use categories for broad grouping (work, reference, entertainment) and tags for fine-grained filtering.
 
 ## Newest links
 
-solyto provides an API endpoint that returns your most recently added links. This powers widgets and integrations that show your latest saves.
+Your most recently added links feed the "Newest Links" widget on the [dashboard](/dashboard/overview/).
 
 ## Favorites
 
-Mark links as favorites using the **is_favorite** flag. Filter your library to show only favorites, making it easy to find your most-used bookmarks quickly.
+Mark links as favorites using the star flag. Filter your library to show only favorites, making it easy to find your most-used bookmarks quickly.
 
-## Telegram bot integration
+## Views and filters
 
-Send a URL to [@SolytoBot](https://t.me/SolytoBot) on Telegram and it's automatically saved to your Link Library. The bot extracts the page title and saves the URL — no additional input needed.
-
-This is the fastest way to save a link from your phone or any device with Telegram installed. See [Telegram Integration](/integrations/telegram/) for setup.
-
-## Quick Add
-
-When you paste a URL into the [Quick Add](/dashboard/quick-add/) feature, solyto detects that it's a link and saves it directly to your Link Library. This works alongside other Quick Add content types like notes and todos.
-
-## Views and sorting
-
-Browse your links and sort by:
-
-- Title (A–Z)
-- Date added
-- Category
-- Favorite status
-
-Filter by category, tags, or favorites to find what you need.
+Browse your links in **List** or **Cards** views. Search by title or URL, and filter by category or favorites.
 
 ## Exporting
 
-Export your entire link library as `.html` in the Netscape Bookmark Format, which every major browser can import. You can also export as `.csv`. See [Exporting Data](/integrations/exporting/).
+Export your entire link library as `.html` in the Netscape Bookmark Format, which every major browser can import. See [Exporting Data](/integrations/exporting/).
