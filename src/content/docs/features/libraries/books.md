@@ -38,7 +38,7 @@ Each book entry includes:
 | **current_page** | Page you're currently on (reading progress) |
 | **lent_to** | Who you lent the book to |
 | **is_where** | Physical location of the book |
-| **cover_image** | Book cover |
+| **cover** | Book cover |
 | **link** | URL (Hardcover, Goodreads, store page) |
 | **wishlist** | Mark as wanted but not yet owned |
 | **summary** | Brief description or synopsis |
@@ -46,7 +46,6 @@ Each book entry includes:
 | **finished_at** | Date you finished reading |
 | **tags** | Colored tags for filtering |
 | **genres** | One or more book genres |
-| **notes** | Free-text notes |
 
 ## Reading progress
 
@@ -62,17 +61,21 @@ Books that are part of a series can be grouped together. Set the **series** name
 
 Track who has your books. Use **lent_to** to record the person you lent a book to, and **is_where** to note where the book physically is — a friend's house, the office, or back on your shelf.
 
-This is especially useful if you lend books often and want to remember who has what.
+This is especially useful if you lend books often and want to remember who has what. A dedicated **Lent out** filter shows only books you've loaned.
 
 ## AI Recommendations
 
-Get book recommendations based on your library. Click **Recommendations** to generate a list of books you might enjoy — either more from authors you've read, or new authors in genres you like.
+Get book recommendations based on your library. Pick **A favorite**, **Something I haven't seen before**, **Just something random**, or **Something new** — solyto picks a matching book from your collection (or fetches a fresh release via Hardcover for "new"). Use "Try again" to reroll.
 
-Recommendations use an OpenAI-compatible API and are generated on-demand only. Your library data is sent to generate suggestions and is not stored permanently by the AI service. Nothing happens until you click the button.
+Recommendations are generated on-demand only — nothing happens until you click the button.
 
 ## Release notifications
 
-Follow authors in your library to get notified when they publish a new book. Notifications are configurable per channel — Telegram, email, or push. See [Notifications](/customization/notifications/) for setup.
+solyto checks Hardcover for new books from your favorite authors and can notify you when they publish. Notifications are configurable per channel — Telegram, email, or push. See [Notifications](/customization/notifications/) for setup.
+
+## Views
+
+Browse your book collection in **List**, **Cards**, **Shelf**, or **Spine** views — the shelf view renders a wooden bookshelf and the spine view flips out 3D book spines (spine width derives from page count). Search by title or author (press **Ctrl+F**), and filter by genre, rating, wishlist, or lent-out.
 
 ## Book genres
 
@@ -82,4 +85,4 @@ Manage genres from the library settings. You can add, rename, and remove genres 
 
 ## Exporting
 
-Export your entire book library as `.csv`. The file includes all fields — title, author, series, rating, genres, reading dates, and notes. See [Exporting Data](/integrations/exporting/).
+Export your entire book library as `.csv`. The file includes all fields — title, author, series, rating, genres, and reading dates. See [Exporting Data](/integrations/exporting/).
