@@ -1,0 +1,93 @@
+---
+title: Primeros pasos
+description: Qué hacer después de crear tu cuenta de solyto.
+---
+
+import VideoPlaceholder from '../../../components/VideoPlaceholder.astro';
+
+Tanto si usas solyto.app como una instancia local o self-hosted, esto es lo que debes hacer después de crear tu cuenta.
+
+## Modal de incorporación
+
+En tu primer inicio de sesión, solyto muestra un modal de incorporación con cuatro pasos:
+
+1. **Bienvenida** — una breve introducción
+2. **Localización** — define tu idioma, zona horaria, formato de fecha y formato de hora
+3. **Funciones** — elige qué funciones habilitar en la navegación
+4. **Listo** — todo preparado
+
+Siempre puedes cambiar esto más adelante en **Configuración**.
+
+## Recorrido de bienvenida
+
+Después del modal de incorporación, un recorrido guiado te presenta cada función que habilitaste. Puedes reiniciarlo en cualquier momento desde **Configuración → App → Reiniciar recorrido**.
+
+## Configura tus preferencias
+
+Ve a **Configuración** y define lo siguiente:
+
+| Ajuste | Dónde | Qué hace |
+|---------|-------|-------------|
+| Idioma | Configuración → Localización | Inglés, alemán, francés o español |
+| Zona horaria | Configuración → Localización | Define tu zona horaria local para el calendario, los recordatorios y el registro diario |
+| Formato de fecha | Configuración → Localización | Elige entre DD.MM.AAAA, MM/DD/AAAA, AAAA-MM-DD y más |
+| Formato de hora | Configuración → Localización | Reloj de 12 o 24 horas |
+| Tema | Configuración → App | Elige entre 10 temas integrados |
+| Animaciones | Configuración → App | Activa o desactiva las animaciones CSS/JS |
+
+El widget del clima en el panel tiene su propio selector de ciudad: haz clic en el nombre de la ciudad para elegir tu ubicación y alternar entre °C/°F.
+
+## Activar o desactivar funciones
+
+No todas las funciones son relevantes para todo el mundo. Ve a **Configuración → Funciones** y activa o desactiva funciones. Las funciones desactivadas se ocultan de la navegación y del panel.
+
+Siempre puedes volver a activarlas más adelante.
+
+## Conecta el bot de Telegram
+
+El bot de Telegram te permite guardar enlaces y recibir un resumen diario sin necesidad de abrir la app.
+
+1. Ve a **Configuración → Notificaciones**
+2. Haz clic en **Bot de Telegram** y copia el token de conexión único
+3. Envía el token al bot de solyto en Telegram usando `/connect <token>`
+4. Tu cuenta queda vinculada
+
+Consulta [Bot de Telegram](/integrations/telegram/) para más detalles.
+
+## Configura la sincronización CalDAV / CardDAV
+
+Si usas una app externa de calendario o contactos (Apple Calendar, DAVx, Thunderbird, etc.), puedes sincronizar mediante CalDAV y CardDAV.
+
+solyto ejecuta un servidor compatible con SabreDAV. Los datos de conexión están disponibles en **Configuración → Notificaciones** (o consulta [Sincronización CalDAV/CardDAV](/integrations/dav-sync/)).
+
+## Importa datos existentes
+
+¿Vienes de otra herramienta? solyto admite la importación de datos desde fuentes habituales:
+
+- **Tareas** — importar desde una fuente externa
+- **Contactos** — importar desde CardDAV (vCard)
+- **Calendario** — importar desde CalDAV (.ics)
+- **Música / Libros / Películas / Juegos** — importar desde Deezer, Discogs, Hardcover, Goodreads, IMDb, Steam, BoardGameGeek y más
+
+Consulta [Importación](/integrations/importing/) para más detalles.
+
+## Explora
+
+Ya está todo listo. Aquí tienes algunas cosas para probar:
+
+- Añade algunas tareas usando la [sintaxis de una línea](/features/todos/#one-line-creation)
+- Suscríbete a un feed RSS en [Feeds](/features/feeds/)
+- Registra tu estado de ánimo de hoy en [Registro diario](/features/check-in/)
+- Añade un libro o un álbum a tus [bibliotecas](/features/libraries/overview/)
+- Empieza a registrar tiempo en un proyecto en [Seguimiento de tiempo](/features/time-tracking/)
+- Envía un enlace al [bot de Telegram](/integrations/telegram/) y observa cómo aparece en tu biblioteca de enlaces
+
+## Video guiado
+
+Un video guiado de tu primer día con solyto está en camino y se incrustará aquí.
+
+<VideoPlaceholder
+  title="Tu primer día con solyto"
+  description="Desde la creación de la cuenta hasta tus primeras tareas, feeds y registro diario."
+  duration="~6 min"
+/>

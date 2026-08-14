@@ -1,0 +1,93 @@
+---
+title: Premiers pas
+description: Que faire après avoir créé votre compte solyto.
+---
+
+import VideoPlaceholder from '../../../components/VideoPlaceholder.astro';
+
+Que vous utilisiez solyto.app ou une instance locale/auto-hébergée, voici ce qu'il faut faire après avoir créé votre compte.
+
+## Fenêtre d'accueil
+
+Lors de votre première connexion, solyto affiche une fenêtre d'accueil en quatre étapes :
+
+1. **Bienvenue** — une brève présentation
+2. **Localisation** — définissez votre langue, votre fuseau horaire, le format de date et le format d'heure
+3. **Fonctionnalités** — choisissez les fonctionnalités à activer dans la navigation
+4. **Prêt** — c'est tout bon
+
+Vous pouvez toujours modifier ces réglages plus tard dans **Paramètres**.
+
+## Visite guidée
+
+Après la fenêtre d'accueil, une visite guidée vous présente chaque fonctionnalité que vous avez activée. Vous pouvez la relancer à tout moment depuis **Paramètres → Application → Relancer la visite guidée**.
+
+## Configurez vos préférences
+
+Rendez-vous dans **Paramètres** pour configurer les éléments suivants :
+
+| Paramètre | Emplacement | Ce qu'il fait |
+|---------|-------|-------------|
+| Langue | Paramètres → Localisation | Anglais, allemand, français ou espagnol |
+| Fuseau horaire | Paramètres → Localisation | Définit votre fuseau horaire local pour le calendrier, les rappels et le check-in |
+| Format de date | Paramètres → Localisation | Choisissez entre JJ.MM.AAAA, MM/JJ/AAAA, AAAA-MM-JJ, et d'autres formats |
+| Format d'heure | Paramètres → Localisation | Horloge 12 heures ou 24 heures |
+| Thème | Paramètres → Application | Choisissez parmi 10 thèmes intégrés |
+| Animations | Paramètres → Application | Activez ou désactivez les animations CSS/JS |
+
+Le widget météo du tableau de bord dispose de son propre sélecteur de ville — cliquez sur le nom de la ville pour choisir votre emplacement et basculer entre °C/°F.
+
+## Activer ou désactiver des fonctionnalités
+
+Toutes les fonctionnalités ne sont pas utiles à tout le monde. Allez dans **Paramètres → Fonctionnalités** et activez ou désactivez les fonctionnalités souhaitées. Les fonctionnalités désactivées sont masquées de la navigation et du tableau de bord.
+
+Vous pouvez toujours les réactiver plus tard.
+
+## Connecter le bot Telegram
+
+Le bot Telegram vous permet d'enregistrer des liens et de recevoir un résumé quotidien sans ouvrir l'application.
+
+1. Allez dans **Paramètres → Notifications**
+2. Cliquez sur **Bot Telegram** et copiez le jeton de connexion unique
+3. Envoyez ce jeton au bot solyto sur Telegram avec `/connect <token>`
+4. Votre compte est lié
+
+Consultez [Bot Telegram](/integrations/telegram/) pour plus de détails.
+
+## Configurer la synchronisation CalDAV / CardDAV
+
+Si vous utilisez une application de calendrier ou de contacts externe (Apple Calendar, DAVx, Thunderbird, etc.), vous pouvez synchroniser via CalDAV et CardDAV.
+
+solyto exécute un serveur compatible SabreDAV. Les informations de connexion sont disponibles dans **Paramètres → Notifications** (voir aussi [Synchronisation CalDAV/CardDAV](/integrations/dav-sync/)).
+
+## Importer des données existantes
+
+Vous venez d'un autre outil ? solyto prend en charge l'importation de données depuis plusieurs sources courantes :
+
+- **Tâches** — importation depuis une source externe
+- **Contacts** — importation depuis CardDAV (vCard)
+- **Calendrier** — importation depuis CalDAV (.ics)
+- **Musique / Livres / Films / Jeux** — importation depuis Deezer, Discogs, Hardcover, Goodreads, IMDb, Steam, BoardGameGeek, et bien d'autres
+
+Consultez [Importation](/integrations/importing/) pour plus de détails.
+
+## Explorez
+
+Vous êtes prêt. Voici quelques suggestions pour commencer :
+
+- Ajoutez quelques tâches avec la [syntaxe en une ligne](/features/todos/#one-line-creation)
+- Abonnez-vous à un flux RSS dans [Flux](/features/feeds/)
+- Enregistrez votre humeur du jour dans le [Check-in quotidien](/features/check-in/)
+- Ajoutez un livre ou un album à vos [Bibliothèques](/features/libraries/overview/)
+- Démarrez un suivi du temps sur un projet dans [Suivi du temps](/features/time-tracking/)
+- Envoyez un lien au [bot Telegram](/integrations/telegram/) et regardez-le apparaître dans votre bibliothèque de liens
+
+## Vidéo de présentation
+
+Une vidéo guidée de votre première journée avec solyto est en préparation et sera intégrée ici.
+
+<VideoPlaceholder
+  title="Votre première journée avec solyto"
+  description="De la création du compte à vos premières tâches, flux et check-in quotidien."
+  duration="~6 min"
+/>
