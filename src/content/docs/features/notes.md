@@ -7,23 +7,23 @@ The Notes feature (also called Notebook) is a full-featured note-taking tool bui
 
 ## Editor
 
-Notes uses [TipTap](https://tiptap.dev/), a ProseMirror-based rich text editor. It supports both WYSIWYG editing and markdown-style shortcuts — type `#` for a heading, `-` for a bullet list, or ``` for a code block. The editor autosaves as you type, so you never lose your work.
+Notes uses [TipTap](https://tiptap.dev/), a ProseMirror-based rich text editor. It supports both WYSIWYG editing and markdown-style shortcuts — type `#` for a heading, `-` for a bullet list, or ``` for a code block. Save with the **Save** button or **Ctrl+S** (`Cmd+S` on Mac); a "Saved · time" indicator confirms your last save.
 
 ### Supported formatting
 
 | Formatting | How to use |
 |-----------|------------|
-| Headings | H1 through H6 |
+| Headings | H1 through H3 |
 | Bold | Bold text |
 | Italic | Italic text |
 | Strikethrough | Strikethrough text |
 | Code | Inline `code` |
 | Bullet lists | Unordered lists |
 | Numbered lists | Ordered lists |
-| Tables | Insert tables with rows and columns |
+| Tables | Insert a 3×3 table with resizable columns and row/column operations via a bubble menu |
 | Images | Upload from disk, paste a URL, or paste from clipboard |
-| Links | Hyperlink any text |
-| Code blocks | Fenced code blocks with syntax highlighting |
+| Links | Hyperlink any text (selected text is prefilled) |
+| Code blocks | Fenced code blocks |
 | Blockquotes | Block-quoted text |
 | Horizontal rules | Section dividers |
 
@@ -54,7 +54,11 @@ Categories support nesting — create top-level folders like "Work" with subfold
 
 Mark any note as a **favorite** to pin it for quick access. Favorites appear at the top of the note list regardless of their category, so your most important notes are always one click away.
 
-Toggle the favorite status from the note detail view or the right-click context menu. You can filter the note list to show only favorites.
+Toggle the favorite status from the note header (star) or the right-click context menu. You can filter the note list to show only favorites.
+
+## Overview
+
+The Notes overview shows three sections: **Favorites**, **New Notes**, and **Last Updated** — a quick way to jump back into what's fresh or important.
 
 ## Tags
 
@@ -64,9 +68,9 @@ Tags provide a cross-category way to find related notes — for example, tag all
 
 ## Import
 
-Import notes from files. solyto reads the file contents and creates a new note in your chosen category. Supported formats include plain text and markdown files. This is useful for migrating notes from other apps into solyto.
+Import notes from Markdown (`.md`) or ZIP files. solyto reads the file contents and creates notes in your chosen category, with a progress bar while uploading. This is useful for migrating notes from other apps (like Obsidian or Notion).
 
-To import, open a category and click the import button, then select one or more files from your device.
+To import, go to the dedicated **Import** page and select one or more files from your device.
 
 ## Exporting
 
