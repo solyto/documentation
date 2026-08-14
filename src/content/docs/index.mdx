@@ -6,10 +6,10 @@ hero:
   tagline: Everything you need. Nothing you don't. No AI, no tracking, no subscriptions.
   actions:
     - text: Get started
-      link: /getting-started/introduction/
+      link: /getting-started/what/
       icon: right-arrow
     - text: Self-hosting
-      link: /getting-started/self-hosting/
+      link: /self-hosting/overview/
       icon: external
       variant: minimal
 ---
@@ -19,22 +19,34 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 ## What's in solyto?
 
 <CardGrid stagger>
-	<Card title="Tasks & Calendar" icon="list-format">
-		Todos with one-line creation, CalDAV-synced calendars, and a daily dashboard view.
-	</Card>
-	<Card title="Contacts & Notes" icon="document">
-		CardDAV-synced contacts and a full notebook with folders, markdown, and WYSIWYG editing.
-	</Card>
 	<Card title="Libraries" icon="open-book">
-		Music, books, movies, games, recipes, quotes, links, and plants — all in one place.
+		Track your books, music, movies, games, recipes, links, and quotes. Your collection, organized your way — no algorithmic recommendations, no "you might also like" noise.
 	</Card>
-	<Card title="Feeds & Clipboard" icon="rss">
-		A news reader for your RSS feeds and a cross-device clipboard.
+	<Card title="Todos" icon="list-format">
+		Tasks, projects, deadlines. Check things off, feel good about it. No gamification, no streaks guilt-tripping you.
 	</Card>
-	<Card title="Tracking" icon="approve-check">
-		Check In for mood/health, Time Tracking with a Pomodoro timer, and Finance tracking.
+	<Card title="Calendar" icon="calendar">
+		Your schedule without the bloat. CalDAV sync if you need it. No "smart" suggestions, no meeting spam.
 	</Card>
-	<Card title="Integrations" icon="setting">
-		Telegram bot, Deezer, Discogs, Goodreads, Hardcover imports, CalDAV/CardDAV sync.
+	<Card title="News" icon="rss">
+		RSS feeds from sources you choose. No algorithm deciding what you should read.
+	</Card>
+	<Card title="Notebook" icon="document">
+		Notes and thoughts. Write things down, organize them, find them later.
+	</Card>
+	<Card title="Contacts" icon="puzzle">
+		Your address book, synced across devices. CardDAV compatible, privacy-first.
+	</Card>
+	<Card title="Finance" icon="information">
+		Track expenses and income. Simple budgeting — no complexity, no selling your financial data.
+	</Card>
+	<Card title="Clipboard" icon="laptop">
+		Copy on your phone, paste on your desktop. A shared clipboard across all your devices — no cables, no AirDrop, no workarounds.
+	</Card>
+	<Card title="Daily Check-In" icon="approve-check">
+		Reflect on your day. Mood tracking, journaling, and habit building in one place.
+	</Card>
+	<Card title="Time Tracker" icon="rocket">
+		Know where your time goes. Track projects, billable hours, and productivity without the stress.
 	</Card>
 </CardGrid>
