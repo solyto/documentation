@@ -37,10 +37,11 @@ When you mark the Sports tracker as active, you can select which type of exercis
 
 ## Customize trackers
 
-Not every tracker is relevant to everyone. In **Settings → Check In**, you can:
+Not every tracker is relevant to everyone. Open **Settings** (the gear icon) in the Check In navigation to:
 
-- **Enable or disable** individual trackers — only the ones you enable appear on the daily entry form
-- **Customize sport types** — choose which exercise types you want to track
+- **Enable or disable** individual trackers — only the ones you enable appear on the daily entry form (at least one must stay enabled)
+- **Mark trackers as scored** — scored trackers feed into the total score and the dashboard widget (the Sports tracker is always unscored)
+- **Pick your sports** — choose up to 5 sport types to track; tap a selected sport, then an unselected one, to swap them
 
 This keeps your daily check-in focused on what matters to you.
 
@@ -52,29 +53,26 @@ A daily check-in typically takes less than a minute once you're used to it.
 
 ## History
 
-Browse your past entries in a **calendar view**:
+Browse your past entries in a **month grid**:
 
-- See which days have entries at a glance
-- Click a day to view or edit its data
+- A day-by-day matrix of tracker icons per day
+- Click any cell to quickly edit that tracker's value for the day
+- Click the day number to open that day's full view
 - Navigate by month to browse your history
+
+### Averages and summaries
+
+The History page also shows per-tracker **averages** plus your overall total, and **Check-in Summaries** — natural-language summaries that describe each day ("good mood, slept well, but drank alcohol") and period summaries for this/last week and this/last month, including your sports counts.
 
 ## Trends
 
-The Trends page shows statistics and charts over time:
-
-- **Averages** — see your average score for each tracker over a given period
-- **Trend charts** — line charts showing how each metric has changed over time
-- **Date range selection** — zoom in on specific periods
+The Trends page shows smooth line charts for each active scored tracker (sports excluded), with date ranges of **30 days, 3 months, 6 months, or all**:
 
 Trends help you spot patterns — for example, whether your sleep quality correlates with your mood, or whether exercising more improves your overall wellbeing scores.
 
-The Trends page is filterable by date range, so you can compare different periods (this month vs. last month, for example).
-
 ## Dashboard widget
 
-The Check In widget appears on your [dashboard](/dashboard/overview/), showing your latest entry and a quick link to fill in today's check-in. If you haven't checked in yet today, the widget prompts you to do so.
-
-The widget gives you an at-a-glance view of how today is going compared to your averages.
+The Check In widget appears on your [dashboard](/dashboard/overview/), showing the mean value per scored tracker as color-coded bars plus your overall total score.
 
 ## Reminders
 
