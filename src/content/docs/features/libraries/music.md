@@ -10,15 +10,9 @@ The Music Library is where you catalogue the music you own and love. Track album
 Add albums to your library in two ways:
 
 - **Manual entry** — fill in the details yourself
-- **Import** — bring in an existing collection from Deezer or Discogs
+- **Search online / import** — search Deezer or Discogs by album, or paste a Deezer/Discogs URL to import it with cover art and metadata automatically
 
-### Import from Deezer
-
-Connect to Deezer to search by artist or album name and import directly. You can also import your Deezer favorites in bulk. This is useful if you've been collecting music on Deezer and want everything in solyto.
-
-### Import from Discogs
-
-Enter your Discogs username to import your vinyl and CD collection. solyto pulls in album details, formats, and conditions automatically.
+While adding an album, a **Deezer preview** widget lets you listen to the matched release before saving.
 
 See [Importing Data](/integrations/importing/) for step-by-step instructions.
 
@@ -30,54 +24,36 @@ Each album entry includes:
 |-------|-------------|
 | **title** | Album title |
 | **artist** | Artist or band name |
-| **type** | Album type (album, single, EP, compilation) |
-| **format** | vinyl, CD, digital, streaming |
+| **type** | Album type (album, single, compilation) |
+| **format** | Vinyl, CD, digital, or cassette |
 | **condition** | Physical condition (for vinyl/CD) |
 | **rating** | 1–5 stars |
 | **publication_year** | Year the album was released |
 | **acquired_where** | Where you got it (record store, online, gift) |
 | **additional_info** | Any extra details (pressing, edition, etc.) |
-| **cover_image** | Album artwork |
+| **cover** | Album artwork |
 | **wishlist** | Mark as wanted but not yet owned |
 | **link** | URL to the album (Deezer, Discogs, etc.) |
-| **tags** | Colored tags for filtering |
 | **genres** | One or more music genres |
-| **notes** | Free-text notes |
 
 ## Music genres
 
-Each music library has its own genre system. Add genres that match your collection — progressive rock, jazz fusion, synthwave, or anything else. Assign multiple genres to any album.
-
-Manage genres from the library settings. You can add, rename, and remove genres at any time.
+Each music library has its own genre system. Add genres that match your collection — progressive rock, jazz fusion, synthwave, or anything else. Assign multiple genres to any album. You can add, rename, and remove genres at any time.
 
 ## AI Recommendations
 
-Get album recommendations based on your library. Click **Recommendations** to generate a list of releases you might enjoy.
+Get album recommendations based on your library. Pick **A favorite**, **Something I haven't seen before**, **Just something random**, or **Something new** — solyto picks a matching album from your collection (or fetches a fresh release via Deezer for "new"). Use "Try again" to reroll.
 
-Recommendations use an OpenAI-compatible API and are generated on-demand only. Your library data is sent to generate suggestions and is not stored permanently by the AI service. Nothing happens until you click the button.
+Recommendations are generated on-demand only — nothing happens until you click the button.
 
 ## Release notifications
 
-Subscribe to artists in your library to get notified when they release new music. Notifications are configurable per channel — Telegram, email, or push. See [Notifications](/customization/notifications/) for setup.
+solyto checks Deezer for new releases from your favorite artists and can notify you when they drop something new. Notifications are configurable per channel — Telegram, email, or push. See [Notifications](/customization/notifications/) for setup.
 
-New releases are checked periodically. You control which artists you follow and how you receive alerts.
+## Views
 
-## Search Deezer
-
-Use the built-in Deezer search to look up albums by artist name and album name. Search results include cover art and metadata, which you can import directly into your library without retyping anything.
-
-## Views and sorting
-
-Browse your music collection in different views and sort by:
-
-- Artist (A–Z)
-- Album title
-- Rating
-- Year
-- Date added
-
-Filter by format, genre, tags, or wishlist status to narrow things down.
+Browse your music collection in **List**, **Cards**, **Shelf**, or **Spine** views — the shelf and spine views render your collection like a record shelf with 3D flips. Search by title or artist (press **Ctrl+F**), and filter by genre, rating, or wishlist.
 
 ## Exporting
 
-Export your entire music library as `.csv`. The file includes all fields — artist, title, format, rating, genres, tags, and notes. See [Exporting Data](/integrations/exporting/).
+Export your entire music library as `.csv`. The file includes all fields — artist, title, format, rating, genres, and more. See [Exporting Data](/integrations/exporting/).
